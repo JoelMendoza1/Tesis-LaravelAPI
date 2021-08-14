@@ -1,0 +1,23 @@
+
+.menu{
+    background-color: transparent !important;
+}
+.anticon svg {
+    font-size: 30px;
+    display: inline-block;
+}
+.ant-menu {
+    background-color: transparent !important;
+}
+.ant-layout layout-heder{
+    background-image: url("https://images.pexels.com/photos/265129/pexels-photo-265129.jpeg?cs=srgb&dl=pexels-pixabay-265129.jpg&fm=jpg") !important ;
+    background-size: 100% 100%;
+
+}
+.ant-layout-header header{
+    background-color: rgba(0, 0, 0, .5) !important;
+
+}
+.active{
+    color: #ffffff;
+}

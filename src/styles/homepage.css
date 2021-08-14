@@ -1,0 +1,58 @@
+.logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+}
+
+.ant-row-rtl .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+
+
+.ant-layout-header header{
+    background: rgba(0, 0, 0, .5) !important;
+
+}
+.ant-layout-header{
+    background: none;
+}
+.layout-heder{
+    background-image: url("https://images.pexels.com/photos/265129/pexels-photo-265129.jpeg?cs=srgb&dl=pexels-pixabay-265129.jpg&fm=jpg") !important ;
+    background-size: 100% 100%;
+}
+
+.ant-btn > a:only-child::after {
+
+    color: white;
+}
+.card-home{
+    width: 800px;
+    align-content: center;
+    margin: auto;
+    margin-top: 60px;
+    background-color: rgba(0, 0, 0, .78);
+    border-color: transparent;
+}
+.card-contact{
+    width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, .78);
+    border-color: transparent;
+}
+.card-about{
+    width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, .78);
+    border-color: transparent;
+}
+.ant-card-type-inner .ant-card-body {
+    width: 800px !important;
+    padding: 70px 24px !important;
+}
+

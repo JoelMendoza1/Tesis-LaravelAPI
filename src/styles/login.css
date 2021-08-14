@@ -1,0 +1,26 @@
+.ant-card-head-title {
+    text-align: center;
+    color: white;
+}
+
+.ant-card-extra a{
+    color: white;
+}
+.ant-card-head {
+    background-color: #292F36;
+}
+.ant-card-type-inner .ant-card-body {
+    padding: 100px 24px !important;
+
+    text-align: center;
+    margin: 0 auto;
+}
+.ant-card ant-card-bordered ant-card-type-inner{
+    width: 40px;
+}
+.ant-card-body{
+    align-content: center !important;
+}
+.ant-form ant-form-horizontal{
+    margin: 0 auto;
+}
