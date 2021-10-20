@@ -3,7 +3,7 @@ import {Image, Card, Layout, Button, Row, Col} from "antd";
 import {NavLink} from "react-router-dom";
 import Routes from "../constants/routes";
 import {BookFilled} from "@ant-design/icons";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Home/Navigation";
 import stylesNavigation from "../styles/navigation.css";
 import FooterComponent from "../components/FooterComponent";
 import '../styles/contact.css';

@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import AboutPages from "../pages/AboutPages";
 import ContactPage from "../pages/ContactPage";
 import HomePage from "../pages/HomePage";
@@ -7,11 +7,11 @@ import NotFoundPage from "../pages/NoFoundPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import Routes from "../constants/routes";
-import PerfilesPage from "../pages/PerfilesPage";
 import DashboardPages from "../pages/DashboardPages";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-import LayoutDashboard from "../components/LayoutDashboard"
+import LayoutDashboard from "../components/Dashboard/LayoutDashboard"
+import ConfirmationRoute from "./ConfirmationRoute";
 
 function DashboardPlataform(){
     return(
@@ -32,10 +32,7 @@ export default  function AppRouter(){
                     <PublicRoute path={Routes.REGISTER} exact component={RegisterPage}/>
                     <PublicRoute path={Routes.CONTACT}  component={ContactPage}/>
                     <PrivateRoute path={Routes.DASHBOARD} component={DashboardPlataform}/>
-                    <PrivateRoute path={Routes.CONFIRMATION} component={DashboardPages}/>:<Redirect to={Routes.CONFIRMATION}/>
-
-
-
+                    <ConfirmationRoute path={Routes.CONFIRMATION} component={DashboardPages}/>
                     <Route path="*" exact component={NotFoundPage}/>
                 </Switch>
             </Router>

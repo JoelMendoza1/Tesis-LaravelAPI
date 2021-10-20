@@ -6,16 +6,9 @@ const AuthProvider=({children})=>{
     const [user, setUser]= useState(
         JSON.parse(localStorage.getItem("user")) || null
     );
-    const [token, setToken]= useState(
-        JSON.parse(localStorage.getItem("token"))||null
-    );
     useEffect(()=>{
         localStorage.setItem("user", JSON.stringify(user))
     },[user])
-
-    useEffect(()=>{
-        localStorage.setItem("token", JSON.stringify(user))
-    },[token])
 
     const contextValue={
         user,
@@ -24,7 +17,6 @@ const AuthProvider=({children})=>{
         },
         logout(){
             setUser(null)
-            setToken(null)
         },
         isLogged(){
             return !!user

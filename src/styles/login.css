@@ -20,6 +20,7 @@
 }
 .ant-card-body{
     align-content: center !important;
+    padding-top: 0;
 }
 .ant-form ant-form-horizontal{
     margin: 0 auto;

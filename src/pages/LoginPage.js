@@ -3,13 +3,12 @@ import useAuth from "../auth/useAuth";
 import {NavLink, useHistory} from "react-router-dom";
 import Routes from "../constants/routes";
 import {Card, Layout, message} from 'antd';
-import {API} from "../services/API"
+import {API} from "../services/API";
 import "../styles/login.css";
 import { Form, Input, Button, Checkbox } from 'antd';
 import {MailOutlined, KeyOutlined, ReadOutlined} from '@ant-design/icons';
 import axios from "axios";
 import FooterComponent from "../components/FooterComponent";
-//import ErrorList from '../components/ErrorList';
 
 const { Footer } = Layout;
 export default function LoginPage(){
@@ -22,10 +21,10 @@ export default function LoginPage(){
     const ingresarDashboard=(request, response)=>{
         console.log(request)
         if(request===1){
-            auth.login(response);
+            auth.login(response.data.token);
             history.push(Routes.DASHBOARD);
         }else{
-            auth.login(response);
+            auth.login(response.data.token);
             history.push(Routes.CONFIRMATION);
         }
     }
@@ -45,11 +44,6 @@ export default function LoginPage(){
                 console.log(response.status);
                 if(response.statusText==="OK"){
                     localStorage.setItem("token", JSON.stringify(response.data.token))
-                    const user={
-                        nombre: response.data.user.name,
-                        apellido: response.data.user.lastname
-                    }
-                    localStorage.setItem("username", JSON.stringify({user}))
                     console.log(response.data.user.request)
                     ingresarDashboard(response.data.user.request, response)
                 }else{

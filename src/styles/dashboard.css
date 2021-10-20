@@ -9,14 +9,12 @@
 
 element.style {
 }
-.anticon svg {
-    display: inline-block;
-}
+
 svg:not(:root) {
     overflow: hidden;
 }
 .anticon svg {
-    font-size: 30px;
+    font-size: 25px;
     display: inline-block;
 }
 

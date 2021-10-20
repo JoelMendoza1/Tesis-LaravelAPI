@@ -1,9 +1,9 @@
 import React from "react";
-import {Button, Col, Row, Typography} from "antd";
+import {Button,  Typography} from "antd";
 import { Carousel } from 'antd';
-import '../styles/about.css';
+import '../../styles/about.css';
 import {NavLink} from "react-router-dom";
-import Routes from "../constants/routes";
+import Routes from "../../constants/routes";
 
 const { Title } = Typography;
 
@@ -13,13 +13,9 @@ export default function About(){
         <div className='about-carrusel'>
             <div>
                 <Title level={3} style={{color: '#ffffff'}}> ¿CÓMO FUNCIONA SI SOY PASANTE?</Title>
-
-
                         <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px', marginBottom:'40px'}}>
                             <NavLink to={ Routes.REGISTER } className='active' exact>VER OFERTAS COMO INVITADO</NavLink>
                         </Button>
-
-
                         <Carousel autoplay>
                             <div className="carrusel-n1">
                                 <div className="carrusel-contenido">
@@ -50,7 +46,6 @@ export default function About(){
                             </div>
 
                         </Carousel>
-
             </div>
             <div className='about-carrusel'>
                 <Title level={3} style={{color: '#ffffff'}}> ¿CÓMO FUNCIONA SI SOY UN EMPRESARIO?</Title>
@@ -83,7 +78,6 @@ export default function About(){
                                     </Button>
                                 </div>
                             </div>
-
                         </Carousel>
             </div>
         </div>

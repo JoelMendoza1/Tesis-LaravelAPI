@@ -13,6 +13,7 @@ const publicRoutes = {
     OFERTAR: '/dashboard/ofertar',
     POSTULAR: '/dashboard/postular',
     EMPRESA: '/dashboard/empresa',
+    CURRICULUM: '/dashboard/curriculum'
 };
 /*
 const privateRoutes = {

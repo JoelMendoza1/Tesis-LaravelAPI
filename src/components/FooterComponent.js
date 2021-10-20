@@ -11,11 +11,11 @@ export default function FooterComponent(){
                 <Row>
                     <Col span={12}>
                         <MailOutlined />
-                        <a style={{marginLeft:'10px', color:"#ffffff"}} href='' target="_blank"> wester.mendoza@epn.edu.ec</a>
+                        <a style={{marginLeft:'10px', color:"#ffffff"}} href='https://google.com' target="_blank"> wester.mendoza@epn.edu.ec</a>
                     </Col>
                     <Col span={12}>
                         <MailOutlined />
-                        <a style={{marginLeft:'10px', color:"#ffffff"}} href='' target="_blank"> gabriela.garcia@epn.edu.ec</a>
+                        <a style={{marginLeft:'10px', color:"#ffffff"}} href='https://google.com' target="_blank"> gabriela.garcia@epn.edu.ec</a>
 
                     </Col>
 

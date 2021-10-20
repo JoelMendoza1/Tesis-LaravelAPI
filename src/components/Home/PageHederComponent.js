@@ -1,12 +1,11 @@
 import React from "react";
-import {PageHeader, Row, Col, Button, Popover } from "antd";
-import styleHome from "../styles/homepage.css";
+import {Row, Col, Button, Popover } from "antd";
 import {Header} from "antd/es/layout/layout";
 import {BookOutlined, FacebookOutlined, InstagramOutlined} from "@ant-design/icons"
 import Navigation from "./Navigation";
-import '../styles/app.css';
-import Routes from "../constants/routes";
-import stylesNavigation from "../styles/navigation.css";
+import '../../styles/app.css';
+import Routes from "../../constants/routes";
+import stylesNavigation from "../../styles/navigation.css";
 import {NavLink} from "react-router-dom";
 export default function PageHederComponent(){
 
@@ -28,8 +27,6 @@ export default function PageHederComponent(){
                             <Col className="gutter-row" span={6} >
                                 <NavLink to={ Routes.HOME } activeClassName={stylesNavigation.active} exact>Home</NavLink>
                             </Col>
-
-
                             <Col xs={ 6} align='right' className='responsive-menu-button'>
                                 <Popover content={ <Navigation mode='vertical' /> }
                                          trigger='click'
@@ -59,7 +56,6 @@ export default function PageHederComponent(){
                                    } }>
                                     <FacebookOutlined />
                                 </a>
-
                                 <a href='https://www.instagram.com' target='_blank' rel='noopener noreferrer'>
                                     <InstagramOutlined />
                                 </a>
@@ -68,7 +64,6 @@ export default function PageHederComponent(){
                     </Header>
                 </Col>
             </Row>
-
         </div>
     );
 }

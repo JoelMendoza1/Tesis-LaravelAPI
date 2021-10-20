@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import '../styles/homepage.css';
 import {ReadOutlined } from '@ant-design/icons';
 import {Button, Card, Layout, Typography} from 'antd';
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Home/Navigation";
 import Routes from "../constants/routes";
 import stylesNavigation from "../styles/navigation.css";
 import {NavLink} from "react-router-dom";

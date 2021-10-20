@@ -3,9 +3,9 @@ import { Card, Layout} from "antd";
 import {NavLink} from "react-router-dom";
 import Routes from "../constants/routes";
 import {BookFilled} from "@ant-design/icons";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Home/Navigation";
 import FooterComponent from "../components/FooterComponent";
-import About from "../components/About";
+import About from "../components/Home/About";
 import '../styles/about.css';
 import 'antd/dist/antd.css';
 

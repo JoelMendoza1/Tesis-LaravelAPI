@@ -1,41 +1,30 @@
 import React from "react";
-import {Button, Card, Layout, Row, Col, Typography,Avatar} from "antd";
-import useAuth from "../auth/useAuth";
-import {NavLink, Redirect} from "react-router-dom";
+import {Card, Layout, Row, Col} from "antd";
+import {NavLink} from "react-router-dom";
 import Routes from "../constants/routes";
-import {ReadOutlined, LogoutOutlined,UserOutlined} from "@ant-design/icons";
+import {ReadOutlined} from "@ant-design/icons";
 import FooterComponent from "../components/FooterComponent";
 import "../styles/dashboard.css";
-const { Title } = Typography;
+import NavigationDashboard from "../components/Dashboard/NavigationDashboard";
+import PerfilesPage from "./PerfilesPage";
 
 const { Header, Content, Footer } = Layout;
 export default function DashboardPages(){
-    const auth= useAuth();
-
-        const users=localStorage.getItem('username');
-
-
     return(
         <div>
             <div className="layout-dashboard">
                 <Layout className="dashboard-layout">
                     <Header className="dashboard" style={{background:'#1E1E2F'}}>
-                        <Row>
-                            <Col span={8}>
-                                <div className="logo" >
-                                    <NavLink to={ Routes.DASHBOARD } style={{color:'#ffffff'}} exact>
+                        <Row justify="end">
+                            <Col  flex="100px">
+                                <div className="logo" style={{font:'left'}} >
+                                    <NavLink to={ Routes.CONFIRMATION } style={{color:'#ffffff'}} exact>
                                         <ReadOutlined style={{fontSize: '100px !important', }}/>
                                     </NavLink>
                                 </div>
                             </Col>
-                            <Col span={8}>
-
-
-                            </Col>
-                            <Col span={8} >
-                                <Button onClick={auth.logout} style={{backgroundColor:'#ffffff', color:'#1E1E2F', marginLeft:'100px', height:'40px'}}>
-                                    <LogoutOutlined /> Cerrar Sesión
-                                </Button>
+                            <Col flex="auto">
+                                <NavigationDashboard/>
                             </Col>
                         </Row>
 
@@ -47,6 +36,7 @@ export default function DashboardPages(){
                                 <h1>DashboardPages</h1>
                                 <h1>Usuario no habilitado</h1>
                                 <h1>Espere estamos procesando su solicitud para añadirse a esta plataforma</h1>
+                                <PerfilesPage/>
                             </Card>
                         </Content>
 
