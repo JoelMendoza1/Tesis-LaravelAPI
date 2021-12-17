@@ -1,10 +1,11 @@
-import {Avatar, Col, Row, Card, Pagination, Badge, Descriptions, Input, message} from "antd";
+import {Avatar, Col, Row, Card, Pagination, Badge, Descriptions, Input, message, Typography} from "antd";
 import {BookOutlined,EnvironmentOutlined,TeamOutlined,ClockCircleOutlined } from "@ant-design/icons";
 import React from "react";
 import {API} from "../../services/API";
 import axios from "axios";
 import BotonPostular from "./BotonPostular";
 const { Search } = Input;
+const { Title } = Typography;
 export default class CardOfertas extends React.Component{
     constructor() {
         super();
@@ -86,7 +87,7 @@ export default class CardOfertas extends React.Component{
                                 }}
                         />
                         {this.state.ofertas.filter((value => {
-                            if(this.state.buscarTerm == ""){
+                            if(this.state.buscarTerm === ""){
                                 return value
                             }else if (value.oferta.toLowerCase().includes(this.state.buscarTerm.toLowerCase())||value.carreraOferta.toLowerCase().includes(this.state.buscarTerm.toLowerCase())){
                                 return value
@@ -101,17 +102,17 @@ export default class CardOfertas extends React.Component{
                                       marginRight:'auto',
                                       marginLeft:'auto',
                                       display:'block',
-                                      background:"#1E1E2F"
+                                      background:"#55556D"
                                   }}
                                   actions={[
                                       <BotonPostular idoferta={value.id} iduser={this.state.user_id}/>,
                                   ]}
                             >
                                 <Row>
-                                    <Col span={6}>
-                                        <h3 style={{color:'#ffffff'}}>
+                                    <Col span={7}>
+                                        <Title level={5} type="secondary">
                                             <Avatar
-                                                size={35}
+                                                size={30}
                                                 style={{
                                                     color: '#000000',
                                                     backgroundImage: `url('http://localhost:8000/storage${value.empresa_id.imagen.substring(6)}')`,
@@ -119,16 +120,17 @@ export default class CardOfertas extends React.Component{
                                                     marginRight:'20px',
                                                 }}
                                             />
-                                             {value.empresa_id.nombreEmpresa}
-                                        </h3>
+                                            {value.empresa_id.nombreEmpresa}
+                                        </Title>
                                     </Col>
-                                    <Col span={10}>
-                                        <h2 style={{color:'#ffffff'}}>
-                                            {value.oferta}
-                                        </h2>
+                                    <Col span={9}>
+                                        <Title level={5}
+                                               style={true ? { width: 250 } : undefined}
+                                               ellipsis={true ? { tooltip: value.oferta } : false}
+                                        >{value.oferta} </Title>
                                     </Col>
                                     <Col span={4}>
-                                        <h4 style={{paddingTop:"5px", color:'#ffffff'}}>°- {value.updated_at.substring(0,value.updated_at.length -17 )}</h4>
+                                        <Title level={5} disabled>°- {value.updated_at.substring(0,value.updated_at.length -17 )}</Title>
                                     </Col>
                                     <Col span={4}>
                                         {
@@ -137,8 +139,6 @@ export default class CardOfertas extends React.Component{
                                                     :<Badge status="success" text="Disponible" style={{color:"#ffffff"}}/>
                                                 :<Badge status="error" text="Terminada" style={{color:"#ffffff"}}/>
                                         }
-
-
                                     </Col>
 
                                 </Row>
@@ -157,10 +157,10 @@ export default class CardOfertas extends React.Component{
                                 >
                                     <Descriptions.Item>{value.descripcionOferta}</Descriptions.Item>
                                 </Descriptions>
-                                <h1 style={{color:'#ffffff'}}><ClockCircleOutlined /> Horario: {value.horario}</h1>
-                                <h1 style={{color:'#ffffff'}}><TeamOutlined /> Pasantes disponibles: {value.numberoPostulantes}</h1>
-                                <h1 style={{color:'#ffffff'}}><EnvironmentOutlined /> Dirección: {value.direcionOferta}</h1>
-                                <h1 style={{color:'#ffffff'}}><BookOutlined /> Carrera: {value.carreraOferta}</h1>
+                                <Title level={4}><ClockCircleOutlined /> Horario: {value.horario}</Title>
+                                <Title level={4}><TeamOutlined /> Pasantes disponibles: {value.numberoPostulantes}</Title>
+                                <Title level={4}><EnvironmentOutlined /> Dirección: {value.direcionOferta}</Title>
+                                <Title level={4}><BookOutlined /> Carrera: {value.carreraOferta}</Title>
                             </Card>
                         )}
                     </Card>

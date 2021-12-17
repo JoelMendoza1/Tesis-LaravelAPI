@@ -1,5 +1,5 @@
 import React from "react";
-import {Image, Card, Layout, Button, Row, Col} from "antd";
+import {Image, Card, Layout, Button, Row, Col,Affix} from "antd";
 import {NavLink} from "react-router-dom";
 import Routes from "../constants/routes";
 import {BookFilled} from "@ant-design/icons";
@@ -15,7 +15,8 @@ export default function ContactPage(){
     return(
         <div className="layout-heder">
             <Layout className="layout-heder">
-                <Header className="header" style={{background: "rgba(0, 0, 0, .5)"}}>
+                <Affix offsetTop={0}>
+                    <Header className="header" style={{background: "rgba(0, 0, 0, .5)"}}>
                     <div className="logo" >
                         <NavLink to={ Routes.HOME } style={{color:'#292F36'}} exact>
                             <BookFilled style={{fontSize: '100px !important', }}/>
@@ -25,7 +26,8 @@ export default function ContactPage(){
                     </div>
 
                     <Navigation className="header"/>
-                </Header>
+                    </Header>
+                </Affix>
                 <Content style={{ padding: '0 50px',  }} className="content">
 
                     <Content style={{ padding: '0 24px', minHeight: 280}} >

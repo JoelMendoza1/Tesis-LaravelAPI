@@ -1,10 +1,16 @@
 import React from "react";
 import {API} from "../services/API";
 import axios from "axios";
-import { Row, Col, Avatar, Card} from 'antd';
+import useAuth from "../auth/useAuth";
+import {Row, Col, Avatar, Card, PageHeader, Typography, List} from 'antd';
 import { UserOutlined} from "@ant-design/icons";
+import InfiniteScroll from "react-infinite-scroller";
 import ModalEditUser from "../components/Perfil/ModalEditUser";
+import CargarImgen from "../components/Perfil/CargarImgen";
+import ModalEditPassword from "../components/Perfil/ModalEditPassword";
+//import CargarImgen from "../components/Perfil/CargarImgen";
 
+const { Title } = Typography;
 export default class PerfilesPage  extends React.Component{
     constructor(props) {
         super(props);
@@ -14,6 +20,7 @@ export default class PerfilesPage  extends React.Component{
         })
     }
     componentDidMount(){
+        console.log(useAuth.usuarios);
         let url = API + 'usuarios';
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')
@@ -54,107 +61,73 @@ export default class PerfilesPage  extends React.Component{
 
         return(
             <div>
-                <Card style={{padding:0, margin:0,paddingTop:'20px'}}>
-                    <div>
-                        <Row justify="end">
-                            <Col span={6}>
-                                <h1><UserOutlined /> Perfil</h1>
-                            </Col>
-                            <Col span={6}>
+
+                <PageHeader
+                    className="site-page-header"
+                    onBack={() => window.history.back()}
+                    title={<Title level={4}><UserOutlined /> Perfil</Title>}
+                    subTitle="En este módulo permitirá al usuario ver, editar, cambiar contraseña y cambiar foto de perfil."
+                    style={{background:"#ffffff"}}
+                    extra={[
+                        <Row>
+                            <Col span={11}>
                                 <ModalEditUser/>
                             </Col>
+                            <Col span={12}>
+                                <ModalEditPassword/>
+                            </Col>
                         </Row>
-                    </div>
-                </Card>
-                <Card style={{height:'74vh',paddingTop:'60px'}}>
+                    ]}
+                />
                     {this.state.usuarios.map((value, index) => (
-
-                                <div key={index} style={{width:'700px', margin:'auto'}}>
-                                    <Row key={index}>
-                                        <Col span={12} >
-                                            <Avatar size={200}
-
-                                                    style={{
-                                                        color: '#000000',
-                                                        backgroundImage: `url('${this.state.imagen}')`,
-                                                        backgroundSize: '100% 100%'
-                                                    }}>
-                                                {value.name[0]} {value.lastname[0]}
-                                            </Avatar>
-                                        </Col>
-                                        <Col span={12}>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Nombre: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.name}</h3>
-                                                </Col>
-                                            </Row>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Apellido: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.lastname}</h3>
-                                                </Col>
-                                            </Row>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Email: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.email}</h3>
-                                                </Col>
-                                            </Row>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Número de cédula: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.identificationCard}</h3>
-                                                </Col>
-                                            </Row>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Teléfono: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.telephoneNumber}</h3>
-                                                </Col>
-                                            </Row>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Dirección: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.address}</h3>
-                                                </Col>
-                                            </Row>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Fecha de nacimiento: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.dateOfBirth}</h3>
-                                                </Col>
-                                            </Row>
-                                            <Row key={index}>
-                                                <Col span={12} >
-                                                    <h3>Institución: </h3>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <h3>{value.institution}</h3>
-                                                </Col>
-                                            </Row>
-                                        </Col>
-                                    </Row>
-
-
-                                </div>
+                        <Card key={index} style={{height:'73vh', paddingBottom:'0px'}}>
+                            <InfiniteScroll>
+                            <Card style={{height:'18vh',paddingTop:'20px', background:'#55556D', paddingBottom:'0px'}} >
+                                <Row justify="start" align="top">
+                                    <Col span={8}>
+                                        <Avatar size={{ xs: 72, sm: 96, md: 120, lg: 192, xl: 240, xxl: 300 }}
+                                                style={{
+                                                    color: '#000000',
+                                                    backgroundImage: `url('${this.state.imagen}')`,
+                                                    backgroundSize: '100% 100%',
+                                                    borderColor:"#ffffff",
+                                                    borderSize:"30px"
+                                                }}>
+                                        </Avatar>
+                                        <CargarImgen/>
+                                    </Col>
+                                    <Col span={10}>
+                                        <Title level={2} style={{color:"#ffffff"}}>{value.name} {value.lastname}</Title>
+                                    </Col>
+                                </Row>
+                            </Card>
+                            <Row key={index} justify="end">
+                                <Col span={17}>
+                                    <List>
+                                        <List.Item>
+                                            <Title level={5}>Email: {value.email}</Title>
+                                        </List.Item>
+                                        <List.Item>
+                                            <Title level={5}>Cédula: {value.identificationCard}</Title>
+                                        </List.Item>
+                                        <List.Item>
+                                            <Title level={5}>Teléfono: {value.telephoneNumber}</Title>
+                                        </List.Item>
+                                        <List.Item>
+                                            <Title level={5}>Dirección: {value.address}</Title>
+                                        </List.Item>
+                                        <List.Item>
+                                            <Title level={5}>Fecha de nacimiento: {value.dateOfBirth}</Title>
+                                        </List.Item>
+                                        <List.Item>
+                                            <Title level={5}>Institución: {value.institution}</Title>
+                                        </List.Item>
+                                    </List>
+                                </Col>
+                            </Row>
+                            </InfiniteScroll>
+                        </Card>
                         ))}
-                </Card>
-
             </div>
             )
 

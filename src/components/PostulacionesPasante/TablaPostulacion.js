@@ -1,9 +1,9 @@
 import React from "react";
-import {message, Row, Col, Button,Alert} from "antd";
+import {message, Row, Col,Alert} from "antd";
 import {API} from "../../services/API";
 import axios from "axios";
 import VerOferta from "../Ofertar/VerOferta";
-import {DeleteOutlined} from "@ant-design/icons";
+import EliminarPostulacion from "./EliminarPostulacion";
 
 export default class TablaPostulacion extends React.Component{
     constructor(props) {
@@ -38,7 +38,7 @@ export default class TablaPostulacion extends React.Component{
             }
         )
     }
-    getUser=()=>{
+    getUser=async ()=>{
         let url = API + 'usuarios';
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')
@@ -65,7 +65,7 @@ export default class TablaPostulacion extends React.Component{
         return(
             <div>
                 <h1 align='center'>MIS POSTULACIONES</h1>
-                <table className="default" style={{background:'#3A506B', margin:'auto', borderColor:'#ffffff'}}>
+                <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff',borderCollapse: 'separate'}}>
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
                         <th style={{width:'300px'}}>Oferta</th>
@@ -76,20 +76,20 @@ export default class TablaPostulacion extends React.Component{
                         <th style={{width:'120px'}}>Acciones</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody style={{}}>
                     {this.state.ofertas.map((value, index) =>
                         <tr key={index}>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
-                                <h5 >{value.oferta_id.oferta}</h5>
+                                {value.oferta_id.oferta}
                             </td>
                             <td>
-                                <h5>{value.oferta_id.horario}</h5>
+                                {value.oferta_id.horario}
                             </td>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
-                                <h5>{value.oferta_id.numberoPostulantes}</h5>
+                                {value.oferta_id.numberoPostulantes}
                             </td>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
-                                <h4>{value.descripcion}</h4>
+                                {value.descripcion}
                             </td>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
                                 {
@@ -104,7 +104,7 @@ export default class TablaPostulacion extends React.Component{
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
                                 <Row>
                                     <Col span={12}>
-                                        <Button type="primary" danger  shape="circle" icon={<DeleteOutlined />} title="Eliminar Postulación"/>
+                                        <EliminarPostulacion idpostulacion={value.id}/>
                                     </Col>
                                     <Col span={12}>
                                         <VerOferta id={value.oferta_id.id}/>

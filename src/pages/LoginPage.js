@@ -62,7 +62,6 @@ export default function LoginPage(){
             console.log(datos);
 
         }catch(e){
-            console.log("Hola");
             console.error( 'No se pudo iniciar sesión', e.message );
 
         }
@@ -73,7 +72,8 @@ export default function LoginPage(){
     return(
         <div>
             <Card style={{
-                background: "radial-gradient(80% 40%, white, #292F36)"
+                background: "radial-gradient(80% 40%, white, #292F36)",
+
             }}
                   title="Inicio de Sesión" extra={<a href={Routes.HOME} >Home</a>}>
 

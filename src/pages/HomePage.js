@@ -2,21 +2,21 @@ import React from "react";
 import 'antd/dist/antd.css';
 import '../styles/homepage.css';
 import {ReadOutlined } from '@ant-design/icons';
-import {Button, Card, Layout, Typography} from 'antd';
+import {Button, Card, Layout, Typography, Affix} from 'antd';
 import Navigation from "../components/Home/Navigation";
 import Routes from "../constants/routes";
 import stylesNavigation from "../styles/navigation.css";
 import {NavLink} from "react-router-dom";
 import FooterComponent from "../components/FooterComponent";
 
-
-
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 export default function HomePage(){
+
     return(
         <div className="layout-heder">
             <Layout className="layout-heder">
+                <Affix offsetTop={0}>
                 <Header className="header" style={{background: "rgba(0, 0, 0, .5)"}}>
                     <div className="logo" >
                         <NavLink to={ Routes.HOME } style={{color:'#292F36'}} exact>
@@ -28,6 +28,7 @@ export default function HomePage(){
 
                     <Navigation className="header"/>
                 </Header>
+                </Affix>
                 <Content style={{ padding: '0 50px' }} className="content">
 
                         <Content style={{ padding: '0 24px', minHeight: 280, height: '560px'}} >

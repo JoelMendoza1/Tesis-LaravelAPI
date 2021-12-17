@@ -47,7 +47,7 @@ export default function Ofertar() {
     }
     useEffect(() => {
         getUser();
-    }, []);
+    },);
     const onFinish = async (userData) => {
         getUser();
         const idempresa = idEmpresa.idEmpresa

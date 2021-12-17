@@ -50,7 +50,7 @@ export default class TableTodosSolicitudes extends React.Component{
     render() {
         return(
             <div>
-                <table className="default" style={{background:'#3A506B', margin:'auto', borderColor:'#ffffff'}}>
+                <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff'}}>
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
                         <th style={{width:'300px'}}>Usuario </th>
@@ -73,12 +73,16 @@ export default class TableTodosSolicitudes extends React.Component{
                                         marginRight:'10px'
                                     }}>
                                     {value.name[0]} {value.lastname[0]}
-                                </Avatar>{value.name} {value.lastname}</td>
+                                </Avatar>
+                                {value.name} {value.lastname}
+
+                            </td>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
                                 {
-                                    (value.request==true ) ?<h5 style={{color:"green", fontSize:'15px'}}><CheckOutlined /> Autorizado</h5>  :
-                                        (value.request===null ) ?<h5 style={{color:"yellow", fontSize:'15px'}}><ClockCircleOutlined /> Pendiente</h5>:
-                                            <h5 style={{color:"red", fontSize:'15px'}}><CloseOutlined /> Rechazado</h5>
+                                    (value.request===null ) ? <h5 style={{color:"yellow", fontSize:'15px'}}><ClockCircleOutlined /> Pendiente</h5> :
+                                        (value.request===0 ) ? <h5 style={{color:"red", fontSize:'15px'}}><CloseOutlined /> Rechazado</h5>:
+                                            <h5 style={{color:"green", fontSize:'15px'}}><CheckOutlined /> Autorizado</h5>
+
                                 }
                             </td>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
@@ -86,21 +90,21 @@ export default class TableTodosSolicitudes extends React.Component{
                             </td>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
                                 {
-                                    (value.request==true ) ?
-                                        <ReprobarUser id={value.id}/> :
-                                        (value.request===null ) ?
-                                            <div>
-                                                <Row>
-                                                    <Col span={12}>
-                                                        <ReprobarUser id={value.id}/>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <AprobarUser id={value.id}/>
-                                                    </Col>
-                                                </Row>
+                                    (value.request===null ) ?
+                                        <div>
+                                            <Row>
+                                                <Col span={12}>
+                                                    <ReprobarUser id={value.id}/>
+                                                </Col>
+                                                <Col span={12}>
+                                                    <AprobarUser id={value.id}/>
+                                                </Col>
+                                            </Row>
 
-                                            </div>:
-                                            <AprobarUser id={value.id}/>
+                                        </div>:
+                                        (value.request===0 ) ?
+                                            <AprobarUser id={value.id}/>:
+                                            <ReprobarUser id={value.id}/>
                                 }
                             </td>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>

@@ -1,15 +1,20 @@
 import React from "react";
-import {Card, Divider} from "antd";
+import {Card, Divider, PageHeader, Typography} from "antd";
 import {FundOutlined} from "@ant-design/icons";
 import InfiniteScroll from "react-infinite-scroller";
 import Ofertar from "../components/Ofertar/Ofertar";
 import TabsOfertar from "../components/Ofertar/TabsOfertar";
+const { Title } = Typography;
 export default function OfertarPage(){
     return(
         <div>
-            <Card style={{paddingTop:'20px'}}>
-                <h1 style={{alignContent:'center'}}><FundOutlined /> Ofertar</h1>
-            </Card>
+            <PageHeader
+                className="site-page-header"
+                onBack={() => window.history.back()}
+                title={<Title level={4}><FundOutlined /> Ofertar</Title>}
+                subTitle="En este modulo permitirá crear, visualizar, editar, borrar, ocultar, publicar las ofertas de una Empresa"
+                style={{background:"#ffffff"}}
+            />
             <Card style={{height:'482px', overflow:'auto', paddingTop:'20px'}}>
                 <InfiniteScroll>
                     <Ofertar/>

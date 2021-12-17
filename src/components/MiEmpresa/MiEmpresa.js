@@ -14,7 +14,7 @@ export default class MiEmpresa extends React.Component{
 
         })
     }
-    getUser=()=>{
+    getUser=async ()=>{
         let url = API + 'usuarios';
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')

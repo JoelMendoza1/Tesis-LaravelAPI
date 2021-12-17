@@ -116,7 +116,6 @@ export default class ModalEditEmpresa extends React.Component{
         this.setState({
             fileList:[ e.file ],
         })
-        return null;
         return e && [ e.file ] && e.fileList;
     };
     handleChangePhoto = info => {

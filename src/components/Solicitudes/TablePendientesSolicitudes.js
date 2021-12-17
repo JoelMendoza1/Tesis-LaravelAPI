@@ -50,7 +50,7 @@ export default class TablePendientesSolicitudes extends React.Component{
     render() {
         return(
             <div>
-                <table className="default" style={{background:'#3A506B', margin:'auto', borderColor:'#ffffff'}}>
+                <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff'}}>
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
                         <th style={{width:'300px'}}>Usuario </th>

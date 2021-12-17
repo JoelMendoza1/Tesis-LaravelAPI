@@ -61,7 +61,7 @@ export default class ModalGetUser extends React.Component{
 
     return(
         <div>
-            <Button style={{background:'transparent', borderColor:'transparent'}} onClick={this.encenderModal}> <UserOutlined /> Ver Perfil</Button>
+            <Button style={{background:'transparent', borderColor:'transparent'}} onClick={this.encenderModal} icon={<UserOutlined /> } title='Ver perfil'/>
             <Modal
                 visible={this.state.modal}
                 footer={[

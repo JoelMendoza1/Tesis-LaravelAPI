@@ -1,6 +1,9 @@
 import React from "react";
 import { Tabs } from 'antd';
 import TablaPostulacion from "./TablaPostulacion";
+import TablaPostulacionPendiente from "./TablaPostulacionPendiente";
+import TablaPostulacionAprobado from "./TablaPostulacionAprobado";
+import TablaPostulacionRechazado from "./TablaPostulacionRechazado";
 
 const { TabPane } = Tabs;
 
@@ -13,13 +16,13 @@ export default class TabsPostulacionP extends React.Component{
                         <TablaPostulacion/>
                     </TabPane>
                     <TabPane tab="Pendientes" key="2">
-                        <TablaPostulacion/>
+                        <TablaPostulacionPendiente/>
                     </TabPane>
                     <TabPane tab="Aprobados" key="3">
-                        <TablaPostulacion/>
+                        <TablaPostulacionAprobado/>
                     </TabPane>
                     <TabPane tab="Rechazados" key="4">
-                        <TablaPostulacion/>
+                        <TablaPostulacionRechazado/>
                     </TabPane>
                 </Tabs>
             </div>

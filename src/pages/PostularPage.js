@@ -2,7 +2,7 @@ import React from "react";
 import {NotificationOutlined} from "@ant-design/icons";
 import {Card} from "antd";
 import InfiniteScroll from "react-infinite-scroller";
-import TabsPostulacionE from "../components/PostulacionesEmpresa/TabsPostulacionE";
+import Postulaciones from "../components/PostulacionesEmpresa/Postulaciones";
 
 export default function PostularPage(){
     return(
@@ -12,7 +12,7 @@ export default function PostularPage(){
             </Card>
             <Card style={{height:'482px', overflow:'auto', paddingTop:'20px'}}>
                 <InfiniteScroll>
-                    <TabsPostulacionE/>
+                   <Postulaciones/>
                 </InfiniteScroll>
             </Card>
         </div>
