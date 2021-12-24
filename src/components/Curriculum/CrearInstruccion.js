@@ -48,39 +48,44 @@ export default class CrearInstruccion extends React.Component{
     }
     okModal=async (userData)=>{
         try{
-            const datos =new FormData();
-            datos.append('instruccion', userData.instruccion);
-            datos.append('nivelInstrucion', userData.nivelInstrucion);
-            datos.append('institucion', userData.institucion);
-            datos.append('especializacion', userData.especializacion);
-            datos.append('document', this.state.selectedFile);
-            /*const datos= {
-                instruccion: userData.instruccion,
-                nivelInstrucion: userData.nivelInstrucion,
-                institucion: userData.institucion,
-                especializacion: userData.especializacion,
-                document: this.state.selectedFile
-            }*/
-            console.log(datos, userData)
-            let url = API +'users/'+this.state.id+'/instrucciones';
-            const token =localStorage.getItem('token')
-            const t= token.replace(/['"]+/g, '')
-            const config = {
-                headers: { Authorization: `Bearer ${t}`,
-                    Accept: 'application/json'
-                }
-            };
-            axios.post(url,datos, config).then(
-                response=>{
-                    message.success('Nueva instrucción  ingresada!!');
-                    console.log(response.data)
-                    window.location.reload();
-                }
-            ).catch(e=>{
-                console.log(e.response.data)
-                console.log(e)
-                message.error(e.response);
-            })
+            if(this.state.selectedFile===null){
+                message.error("Certificado no cargado");
+            }else{
+                const datos =new FormData();
+                datos.append('instruccion', userData.instruccion);
+                datos.append('nivelInstrucion', userData.nivelInstrucion);
+                datos.append('institucion', userData.institucion);
+                datos.append('especializacion', userData.especializacion);
+                datos.append('document', this.state.selectedFile);
+                /*const datos= {
+                    instruccion: userData.instruccion,
+                    nivelInstrucion: userData.nivelInstrucion,
+                    institucion: userData.institucion,
+                    especializacion: userData.especializacion,
+                    document: this.state.selectedFile
+                }*/
+                console.log(datos, userData)
+                let url = API +'users/'+this.state.id+'/instrucciones';
+                const token =localStorage.getItem('token')
+                const t= token.replace(/['"]+/g, '')
+                const config = {
+                    headers: { Authorization: `Bearer ${t}`,
+                        Accept: 'application/json'
+                    }
+                };
+                axios.post(url,datos, config).then(
+                    response=>{
+                        message.success('Nueva instrucción  ingresada!!');
+                        console.log(response.data)
+                        window.location.reload();
+                    }
+                ).catch(e=>{
+                    console.log(e.response.data)
+                    console.log(e)
+                    message.error(e.response);
+                })
+            }
+
         }catch (e){
             message.error( <>{ e.message }</> );
             console.log(e.message)
@@ -109,7 +114,7 @@ export default class CrearInstruccion extends React.Component{
                     type="primary"
                     icon={<PlusOutlined />}
                     shape="circle"
-                    title='Crear Habilidad'
+                    title='Crear Instrucción'
                     onClick={this.encenderModal}
                 />
                 <Modal

@@ -6,6 +6,8 @@ import {BankOutlined, CalendarOutlined, FileTextOutlined} from "@ant-design/icon
 import EditarInstruccion from "./EditarInstruccion";
 import EliminarInstruccion from "./EliminarInstruccion";
 import EditarInstruccionDocument from "./EditarInstruccionDocument";
+import EditarCapacitacion from "./EditarCapacitacion";
+import EliminarCapacitacion from "./EliminarCapacitacion";
 const {Text}= Typography;
 export default class CapacitacionCard extends React.Component{
     constructor(props) {
@@ -84,10 +86,10 @@ export default class CapacitacionCard extends React.Component{
                             <Col span={12}>
                                 <Row justify="center">
                                     <Col span={6} >
-                                        <EditarInstruccion id={value.id}/>
+                                        <EditarCapacitacion id={value.id}/>
                                     </Col>
                                     <Col span={6}>
-                                        <EliminarInstruccion id={value.id}/>
+                                        <EliminarCapacitacion id={value.id}/>
                                     </Col>
                                     <Col span={6}>
                                         <Button

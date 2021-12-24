@@ -1,11 +1,7 @@
 import {Button, DatePicker, Form, Input, message, Modal} from "antd";
 import {
     PlusOutlined,
-    BankOutlined,
-    StockOutlined,
-    BookOutlined,
-    CrownOutlined,
-    UploadOutlined
+    UploadOutlined, ProjectOutlined, BankOutlined, CalendarOutlined
 } from "@ant-design/icons";
 import React from "react";
 import {API} from "../../services/API";
@@ -48,39 +44,44 @@ export default class CrearCapacitacion extends React.Component{
     }
     okModal=async (userData)=>{
         try{
-            const datos =new FormData();
-            datos.append('instruccion', userData.instruccion);
-            datos.append('nivelInstrucion', userData.nivelInstrucion);
-            datos.append('institucion', userData.institucion);
-            datos.append('especializacion', userData.especializacion);
-            datos.append('document', this.state.selectedFile);
-            /*const datos= {
-                instruccion: userData.instruccion,
-                nivelInstrucion: userData.nivelInstrucion,
-                institucion: userData.institucion,
-                especializacion: userData.especializacion,
-                document: this.state.selectedFile
-            }*/
-            console.log(datos, userData)
-            let url = API +'users/'+this.state.id+'/instrucciones';
-            const token =localStorage.getItem('token')
-            const t= token.replace(/['"]+/g, '')
-            const config = {
-                headers: { Authorization: `Bearer ${t}`,
-                    Accept: 'application/json'
-                }
-            };
-            axios.post(url,datos, config).then(
-                response=>{
-                    message.success('Nueva instrucción  ingresada!!');
-                    console.log(response.data)
-                    window.location.reload();
-                }
-            ).catch(e=>{
-                console.log(e.response.data)
-                console.log(e)
-                message.error(e.response);
-            })
+            if(this.state.selectedFile===null){
+                message.error("Certificado no cargado");
+            }else{
+                const datos =new FormData();
+                datos.append('nombreCapacitacion', userData.capacitacion);
+                datos.append('nombreInstitucionCapacitadora', userData.institucion);
+                datos.append('fechaInicioCapacitacion', userData.periodo[0].format('DD/MM/YYYY'));
+                datos.append('fechaFinCapacitacion', userData.periodo[1].format('DD/MM/YYYY'));
+                datos.append('document', this.state.selectedFile);
+                /*const datos= {
+                    nombreCapacitacion: userData.capacitacion,
+                    nombreInstitucionCapacitadora: userData.institucion,
+                    fechaInicioCapacitacion: userData.periodo,
+                    fechaFinCapacitacion: userData.periodo,
+                    document: this.state.selectedFile
+                }*/
+                console.log(datos, userData)
+                let url = API +'users/'+this.state.id+'/capacitacions';
+                const token =localStorage.getItem('token')
+                const t= token.replace(/['"]+/g, '')
+                const config = {
+                    headers: { Authorization: `Bearer ${t}`,
+                        Accept: 'application/json'
+                    }
+                };
+                axios.post(url,datos, config).then(
+                    response=>{
+                        message.success('Nueva capacitación  ingresada!!');
+                        console.log(response.data)
+                        window.location.reload();
+                    }
+                ).catch(e=>{
+                    console.log(e.response.data)
+                    console.log(e)
+                    message.error(e.response);
+                })
+            }
+
         }catch (e){
             message.error( <>{ e.message }</> );
             console.log(e.message)
@@ -109,11 +110,11 @@ export default class CrearCapacitacion extends React.Component{
                     type="primary"
                     icon={<PlusOutlined />}
                     shape="circle"
-                    title='Crear Habilidad'
+                    title='Crear Capacitación'
                     onClick={this.encenderModal}
                 />
                 <Modal
-                    title="Crear Habilidad "
+                    title="Crear Capacitación "
                     visible={this.state.modal}
                     width={600}
                     footer={[
@@ -135,25 +136,25 @@ export default class CrearCapacitacion extends React.Component{
                         <label><UploadOutlined/> Carga tu certificado:</label><input type='file' onChange={this.fileSelectedHandler}/>
                         <br/>
                         <Form.Item
-                            label={<><BookOutlined/> Capacitacion</>}
+                            label={<><ProjectOutlined/> Capacitacion</>}
                             name="capacitacion"
                             rules={[{required: true,whitespace:true, message: 'Por favor ingrese el nombre de la capacitación!!' }]}
                         >
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            label={<><BookOutlined/> Institución capacitadora</>}
+                            label={<><BankOutlined/> Institución capacitadora</>}
                             name="institucion"
                             rules={[{required: true,whitespace:true, message: 'Por favor ingrese la institución capacitadora!!' }]}
                         >
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            label={<><StockOutlined/> Periodo de la capacitación</>}
+                            label={<><CalendarOutlined/> Periodo de la capacitación</>}
                             name="periodo"
-                            rules={[{ required: true,whitespace:true, message: 'Por favor ingrese el inicio y fin de la capacitación' }]}
+                            //rules={[{ required: true,whitespace:true, message: 'Por favor ingrese el inicio y fin de la capacitación' }]}
                         >
-                            <RangePicker />
+                            <RangePicker format={'DD/MM/YYYY'}/>
                         </Form.Item>
                         <Form.Item wrapperCol={{offset: 8, span: 16}}>
                             <Button type="primary" htmlType="submit" style={{

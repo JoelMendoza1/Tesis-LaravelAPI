@@ -3,6 +3,7 @@ import {Card, Button} from "antd";
 import InfiniteScroll from "react-infinite-scroller";
 import {BookOutlined, PlusOutlined, ProjectOutlined} from "@ant-design/icons";
 import CapacitacionCard from "./CapacitacionCard";
+import CrearCapacitacion from "./CrearCapacitacion";
 
 export default function Capacitaciones() {
     return (
@@ -16,16 +17,7 @@ export default function Capacitaciones() {
             }}
             title={<h1><ProjectOutlined/> Capacitaciones</h1>}
             extra={[
-                <Button
-                    style={{
-                        background:'#237804',
-                        borderColor:'transparent'
-                    }}
-                    type="primary"
-                    icon={<PlusOutlined />}
-                    shape="circle"
-                    title='Crear'
-                />,
+                <CrearCapacitacion/>,
             ]}
         >
             <InfiniteScroll>
