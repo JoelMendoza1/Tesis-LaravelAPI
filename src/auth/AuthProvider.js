@@ -32,12 +32,16 @@ const AuthProvider=({children})=>{
                 console.log("Token expirado", e.response.data)
                 if(e.response.data.message==="token_not_refreshed"){
                     setUser(null)
+                    setUser(null)
+                    localStorage.clear()
                 }
                 if(e.response.data.message==="token_expired"){
 
                 }
                 if(e.response.data.message==="token_invalid"){
                     setUser(null)
+                    localStorage.clear()
+
                 }
             })
         }

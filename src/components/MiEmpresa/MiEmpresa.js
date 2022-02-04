@@ -2,9 +2,13 @@ import React from "react";
 import {API} from "../../services/API";
 import axios from "axios";
 import InfiniteScroll from 'react-infinite-scroller';
-import {Col, Row, Card, Avatar, message} from "antd";
+import {Col, Row, Card, Avatar, message, Typography, List, PageHeader} from "antd";
 import ModalEditEmpresa from "./ModalEditEmpresa";
 import ModalCrearEmpresa from "./ModalCrearEmpresa";
+import {ShopOutlined} from "@ant-design/icons";
+import EliminarEmpresa from "./EliminarEmpresa";
+import EditImageEmpresa from "./EditImageEmpresa";
+const { Title } = Typography;
 export default class MiEmpresa extends React.Component{
     constructor(props) {
         super(props);
@@ -60,90 +64,73 @@ export default class MiEmpresa extends React.Component{
     render() {
         return(
             <div >
-                <Card style={{height:'432px', overflow:'auto', paddingTop:'60px'}}>
-                {
-                    (this.state.empresa.length!==0) ?
-                        <InfiniteScroll>
-                                {this.state.empresa.map((value, index) => (
-                                    <div key={index} style={{width:'700px', margin:'auto'}}>
-                                        <Row key={index}>
-                                            <Col span={12} >
-                                                <Card style={{width:250, paddingTop:'20px'}}>
-                                                    <Avatar size={200}
-                                                            style={{
-                                                                color: '#000000',
-                                                                backgroundImage: `url('http://localhost:8000/storage${value.imagen.substring(6)}')`,
-                                                                backgroundSize: '100% 100%',
-                                                            }}/>
-                                                    <h1 align='center'>{value.nombreEmpresa}</h1>
-                                                </Card>
-                                                <div style={{paddingTop:'30px'}}>
-                                                    <Row key={index}>
-                                                        <Col span={12} >
-                                                            <ModalEditEmpresa idempresa={value.id} iduser={this.state.user_id}/>
-                                                        </Col>
-                                                        <Col span={12}
-                                                        //<EliminarEmpresa idempresa={value.id}/>
-                                                        >
-                                                        </Col>
-                                                    </Row>
-                                                </div>
-                                            </Col>
-                                            <Col span={12}>
-                                                <Row key={index}>
-                                                    <Col span={12} >
-                                                        <h3>Razón Social: </h3>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <h3>{value.nombreEmpresa}</h3>
-                                                    </Col>
-                                                </Row>
-                                                <Row key={index}>
-                                                    <Col span={12} >
-                                                        <h3>RUC: </h3>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <h3>{value.RUC}</h3>
-                                                    </Col>
-                                                </Row>
-                                                <Row key={index}>
-                                                    <Col span={12} >
-                                                        <h3>Tipo de empresa: </h3>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <h3>{value.tipoEmpresa}</h3>
-                                                    </Col>
-                                                </Row>
-                                                <Row key={index}>
-                                                    <Col span={12} >
-                                                        <h3>Teléfono: </h3>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <h3>{value.telefonoEmpresa}</h3>
-                                                    </Col>
-                                                </Row>
-                                                <Row key={index}>
-                                                    <Col span={12} >
-                                                        <h3>Email: </h3>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <h3>{value.emailEmpresa}</h3>
-                                                    </Col>
-                                                </Row>
-                                                <Row key={index}>
-                                                    <Col span={12} >
-                                                        <h3>Dirección: </h3>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <h3>{value.direccionEmpresa}</h3>
-                                                    </Col>
-                                                </Row>
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                ))}
-                        </InfiniteScroll>
-                        :
+                <PageHeader
+                    className="site-page-header"
+                    onBack={() => window.history.back()}
+                    title={<Title level={4}><ShopOutlined /> My Empresa</Title>}
+                    subTitle="En este modulo permitirá ver el perfil de la empresa y editarla"
+                    style={{background:"#ffffff"}}
+                />
+                <Card style={{height:'80vh', overflow:'auto', paddingTop:'60px'}}>
+                {(this.state.empresa.length!==0) ?
+                    <InfiniteScroll>
+                        {this.state.empresa.map((value, index) => (
+                            <div>
+                                <Card style={{height:'18vh',paddingTop:'20px', background:'#55556D', paddingBottom:'0px'}} >
+                                    <Row justify="start" align="top">
+                                        <Col span={6} >
+                                            <Avatar size={{ xs: 72, sm: 96, md: 120, lg: 192, xl: 240, xxl: 300 }}
+                                                    style={{
+                                                        color: '#000000',
+                                                        backgroundImage: `url('http://localhost:8000/storage${value.imagen.substring(6)}')`,
+                                                        backgroundSize: '100% 100%',
+                                                        borderColor:"#ffffff",
+                                                        borderSize:"30px"
+                                                    }}
+                                            />
+
+                                        </Col>
+                                        <Col span={8}>
+                                            <Title level={2} style={{color:"#ffffff"}}>{value.nombreEmpresa}</Title>
+                                        </Col>
+                                        <Col span={4} >
+                                            <ModalEditEmpresa idempresa={value.id} iduser={this.state.user_id}/>
+                                        </Col>
+                                        <Col span={3}
+                                            //<EliminarEmpresa idempresa={value.id}/>
+                                        >
+                                            <EliminarEmpresa idempresa={value.id}/>
+                                        </Col>
+                                        <Col span={3} >
+                                            <EditImageEmpresa idempresa={value.id}/>
+                                        </Col>
+                                    </Row>
+                                </Card>
+                                <Row key={index} justify="end">
+                                    <Col span={17}>
+                                        <List>
+                                            <List.Item>
+                                                <Title level={5}>RUC: {value.RUC}</Title>
+                                            </List.Item>
+                                            <List.Item>
+                                                <Title level={5}>Tipo de empresa: {value.tipoEmpresa}</Title>
+                                            </List.Item>
+                                            <List.Item>
+                                                <Title level={5}>Teléfono: {value.telefonoEmpresa}</Title>
+                                            </List.Item>
+                                            <List.Item>
+                                                <Title level={5}>Email: {value.emailEmpresa}</Title>
+                                            </List.Item>
+                                            <List.Item>
+                                                <Title level={5}>Dirección: {value.direccionEmpresa}</Title>
+                                            </List.Item>
+                                        </List>
+                                    </Col>
+                                </Row>
+                            </div>
+                            ))
+                        }
+                    </InfiniteScroll> :
                         <div>
                             <ModalCrearEmpresa iduser={this.state.user_id}/>
                         </div>

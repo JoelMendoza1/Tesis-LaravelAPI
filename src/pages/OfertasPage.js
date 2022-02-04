@@ -14,7 +14,7 @@ export default function OfertasPage(){
                 subTitle="En este modulo permitirá visualizar y postular las ofertas al Pasante"
                 style={{background:"#ffffff"}}
             />
-            <Card style={{height:'482px', overflow:'auto', paddingTop:'20px'}}>
+            <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>
                 <InfiniteScroll>
                     <CardOfertas/>
                 </InfiniteScroll>

@@ -55,25 +55,10 @@ export default class LayoutDashboard extends React.Component {
         };
         axios.get(url, config).then(
             response=>{
-                if(response.data.request===null){
-                    this.setState({
-                        id:response.data.id,
-                        request:true
-                    })
-                }
-                if(response.data.request===true){
-                    this.setState({
-                        id:response.data.id,
-                        request:false
-                    })
-                }
-                if(response.data.request===false){
-                    this.setState({
-                        id:response.data.id,
-                        request:true
-                    })
-                }
-                console.log(this.state.request)
+                this.setState({
+                    id:response.data.id,
+                    request:response.data.request
+                })
                 this.getRol(response.data.id)
             }
         )
@@ -126,37 +111,37 @@ export default class LayoutDashboard extends React.Component {
                 <div>
                     {(this.state.cargandoMenu)?<Spin size="small" />:
                     <div>
-                        <Menu.Item key={Routes.SOLICITUDES} icon={<QuestionOutlined />} style={{display:this.state.administrador}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.SOLICITUDES} icon={<QuestionOutlined />} style={{display:this.state.administrador}}>
                             <NavLink to={Routes.SOLICITUDES} visible={this.state.administrador}>
                                 Solicitudes
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.OFERTAS} icon={<FundOutlined />} style={{display:this.state.pasante}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.OFERTAS} icon={<FundOutlined />} style={{display:this.state.pasante}}>
                             <NavLink to={Routes.OFERTAS}>
                                 Ofertas
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.POSTULACION} icon={<NotificationOutlined />}style={{display:this.state.pasante}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.POSTULACION} icon={<NotificationOutlined />}style={{display:this.state.pasante}}>
                             <NavLink to={Routes.POSTULACION}>
                                 Postulaciones
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.CURRICULUM} icon={<IdcardOutlined/>} style={{display:this.state.pasante}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.CURRICULUM} icon={<IdcardOutlined/>} style={{display:this.state.pasante}}>
                             <NavLink to={Routes.CURRICULUM}>
                                 Curriculum
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.OFERTAR} icon={<FundOutlined />}style={{display:this.state.empresa}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.OFERTAR} icon={<FundOutlined />}style={{display:this.state.empresa}}>
                             <NavLink to={Routes.OFERTAR}>
                                 Ofertar
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.POSTULAR} icon={<NotificationOutlined />}style={{display:this.state.empresa}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.POSTULAR} icon={<NotificationOutlined />}style={{display:this.state.empresa}}>
                             <NavLink to={Routes.POSTULAR}>
                                 Postulaciones
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.EMPRESA} icon={<ShopOutlined />} style={{display:this.state.empresa}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.EMPRESA} icon={<ShopOutlined />} style={{display:this.state.empresa}}>
                             <NavLink to={Routes.EMPRESA}>
                                 Mi Empresa
                             </NavLink>

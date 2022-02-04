@@ -6,7 +6,6 @@ import {HistoryOutlined } from '@ant-design/icons';
 import axios from "axios";
 import {Option} from "antd/es/mentions";
 
-const { RangePicker } = TimePicker;
 export default function Ofertar() {
     const [idEmpresa, setIdEmpresa] = useState({})
     const getUser= async ()=>{
@@ -23,7 +22,7 @@ export default function Ofertar() {
             }
         )
     }
-    const getEmpresa= (id)=>{
+    const getEmpresa= async (id)=>{
         console.log(id)
         let url = API + 'users/'+id+'/empresas';
         const token =localStorage.getItem('token')
@@ -46,7 +45,7 @@ export default function Ofertar() {
         )
     }
     useEffect(() => {
-        getUser();
+
     },);
     const onFinish = async (userData) => {
         getUser();
@@ -55,8 +54,6 @@ export default function Ofertar() {
         const token = localStorage.getItem('token')
         const t = token.replace(/['"]+/g, '')
         const fecha = new Date();
-        const horario1 = userData.horario[0]._d+"";
-        const horario2 = userData.horario[1]._d+"";
         const config = {
             headers: {
                 Authorization: `Bearer ${t}`,
@@ -66,7 +63,7 @@ export default function Ofertar() {
         const data={
                 oferta: userData.oferta,
                 descripcionOferta: userData.descripcionOferta,
-                horario: horario1.substring(16,horario1.length -30 )+" a "+horario2.substring(16, horario1.length -30 ),
+                horario: userData.horario[0].format('HH:mm')+" a "+userData.horario[1].format('HH:mm'),
                 numberoPostulantes: userData.numberoPostulantes,
                 direcionOferta: userData.direcionOferta,
                 carreraOferta: userData.carreraOferta,
@@ -82,7 +79,7 @@ export default function Ofertar() {
                     window.location.reload();
                 }
             ).catch(e => {
-                console.log(e.message)
+                console.log(e.response.data)
                 message.error('Error ' + e.message);
             })
             console.log(data)
@@ -126,7 +123,7 @@ export default function Ofertar() {
                             label={<label><HistoryOutlined /> Horario</label>}
                             name="horario"
                         >
-                            <RangePicker bordered={false} format='HH:mm' disabledSeconds/>
+                            <TimePicker.RangePicker bordered={false} format='HH:mm' />
                         </Form.Item>
                         <Form.Item
                             label={<label> Número de postulantes</label>}

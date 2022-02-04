@@ -1,12 +1,11 @@
-import {Button, DatePicker, Form, Input, message, Modal, Select} from "antd";
+import {Button, DatePicker, Form, Input, message, Modal} from "antd";
 import {
-    EditOutlined, BookOutlined, StockOutlined, BankOutlined, CrownOutlined, ProjectOutlined, CalendarOutlined
+    EditOutlined, BankOutlined, ProjectOutlined, CalendarOutlined
 } from "@ant-design/icons";
 import React from "react";
 import {API} from "../../services/API";
 import axios from "axios";
 import moment from "moment";
-const { Option } = Select;
 export default class EditarCapacitacion extends React.Component{
     constructor(props) {
         super(props);
@@ -42,7 +41,7 @@ export default class EditarCapacitacion extends React.Component{
                 nombreCapacitacion: userData.capacitacion,
                 nombreInstitucionCapacitadora: userData.institucion,
                 fechaInicioCapacitacion: userData.periodo[0].format('DD/MM/YYYY'),
-                fechaFinCapacitacion: userData.periodo[0].format('DD/MM/YYYY'),
+                fechaFinCapacitacion: userData.periodo[1].format('DD/MM/YYYY'),
             }
             console.log(datos)
             let url = API +'capacitacions/'+this.state.id;

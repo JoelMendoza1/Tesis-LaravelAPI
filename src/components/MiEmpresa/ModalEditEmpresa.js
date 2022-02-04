@@ -1,20 +1,16 @@
 import React from "react";
 import {AutoComplete, Button, Form, Input, Modal, Select,message} from "antd";
-import {FileImageOutlined,} from "@ant-design/icons";
+import { FormOutlined,} from "@ant-design/icons";
 import {Option} from "antd/es/mentions";
 import axios from "axios";
 import {API} from "../../services/API";
 
-function getBase64(img, callback) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
-}
 export default class ModalEditEmpresa extends React.Component{
     constructor(props) {
         super(props);
         this.state =({
                 //usuarios: [],
+                empresa:[],
                 modal: false,
                 fileList: [],
                 imageUrl: null,
@@ -26,6 +22,29 @@ export default class ModalEditEmpresa extends React.Component{
     componentDidMount(){
 
     }
+    getEmpresa=async(id)=>{
+        console.log(id)
+        let url = API + 'empresas/'+id;
+        const token =localStorage.getItem('token')
+        const t= token.replace(/['"]+/g, '')
+        const config = {
+            headers: { Authorization: `Bearer ${t}` }
+        };
+        axios.get(url, config).then(
+            response=>{
+                console.log(response)
+                this.setState({
+                    empresa:[response.data]
+                })
+            }
+        ).catch(
+            e=>{
+                console.log(this.state.empresa)
+                console.log(e.message)
+                message.error("Empresa no encontrada!")
+            }
+        )
+    }
     okModal=async (userData)=>{
         console.log(userData)
         const datos ={
@@ -35,7 +54,6 @@ export default class ModalEditEmpresa extends React.Component{
             telefonoEmpresa: userData.telefono,
             emailEmpresa:userData.email,
             direccionEmpresa: userData.direccion,
-            imagen: this.state.fileList[0]
         }
         console.log(datos)
         console.log(this.state.user_id)
@@ -57,77 +75,30 @@ export default class ModalEditEmpresa extends React.Component{
                 window.location.reload();
             }
         ).catch(e=>{
-            console.log(e.message)
+            console.log(e.response)
             message.error('Error '+e);
         })
     }
+
     apagarModal=()=>{
         this.setState({
             modal: false
         })
     }
     encenderModal=()=>{
+        this.getEmpresa(this.state.empresa_id)
         this.setState({
             modal: true
         })
     }
-    normPhotoFile = e => {
-        console.log( 'Upload event:', e );
-        const file = e.file;
-        const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-        if( !isJpgOrPng ) {
-            message.error( 'La imagen debe tener formato JPG o PNG' );
-            this.setState({
-                fileList:[],
-                imageUrl: null,
-            })
-            return null;
-        }
-        const isLt2M = file.size / 1024 / 1024 < 2;
-        if( !isLt2M ) {
-            message.error( 'La imagen debe ser menor a 2MB' );
-            this.setState({
-                fileList:[],
-                imageUrl: null,
-            })
-            return null;
-        }
-
-        if( file.status === 'removed' ) {
-            this.setState({
-                fileList:[],
-                imageUrl: null,
-            })
-            return null;
-        }
-
-        getBase64(e.file, imageUrl =>
-            this.setState({
-                imageUrl,
-            }))
-
-        if( Array.isArray( e ) ) {
-            return e;
-        }
-
-        console.log( 'e.file', e.file );
-        console.log( 'e.fileList', e.fileList );
-
-        this.setState({
-            fileList:[ e.file ],
-        })
-        return e && [ e.file ] && e.fileList;
-    };
-    handleChangePhoto = info => {
-            this.setState({
-                imageUrl: info.image,
-                loading: false,
-            })
-    };
     render() {
         return(
             <div>
-                <Button  type="primary" shape="round" onClick={this.encenderModal}>Editar Empresa</Button>
+                <Button  style={{backgroundColor:'#1E1E2F', color:'#ffffff', border:"#ffffff"}}
+                         onClick={this.encenderModal}
+                >
+                    <FormOutlined /> Editar Empresa
+                </Button>
                 <Modal
                     title="Editar Perfil "
                     visible={this.state.modal}
@@ -138,39 +109,23 @@ export default class ModalEditEmpresa extends React.Component{
                     ]}
                     onCancel={this.apagarModal}
                 >
+                    {this.state.empresa.map((value, index) => (
                     <Form
                         name="basic"
                         labelCol={{ span: 8 }}
                         wrapperCol={{ span: 16 }}
-                        initialValues={{ remember: true }}
+                        initialValues={{
+                            razonSocial: value.nombreEmpresa,
+                            ruc:value.RUC,
+                            tipoEmpresa:value.tipoEmpresa,
+                            telefono:value.telefonoEmpresa,
+                            email:value.emailEmpresa,
+                            direccion:value.direccionEmpresa,
+
+                    }}
                         onFinish={this.okModal}
                         //onFinishFailed={onFinishFailed}
                     >
-                        <Form.Item
-                            name='image'
-                            label='Imagen de perfil'
-                            valuePropName='fileList'
-                            getValueFromEvent={ this.normPhotoFile }
-                            /*rules={ [
-                                {
-                                    required: true,
-                                    message: 'Sube tu foto'
-                                }
-                            ] }*/
-                        >
-                            <input
-                                    type='file'
-                                    accept='image/jpeg,image/png'
-                                    onChange={ this.handleChangePhoto }
-                            >
-                                { this.state.imageUrl
-                                    ? <img src={ this.state.imageUrl } alt='Foto' style={ { width: '80px' } } />
-                                    : <div>
-                                        <FileImageOutlined />
-                                        <div className='ant-upload-text'>Upload</div>
-                                    </div> }
-                            </input>
-                        </Form.Item>
                         <Form.Item
                             label="Razón social"
                             name="razonSocial"
@@ -230,6 +185,8 @@ export default class ModalEditEmpresa extends React.Component{
                             </Button>
                         </Form.Item>
                     </Form>
+                    ))
+                    }
                 </Modal>
             </div>
         )

@@ -1,7 +1,7 @@
 import React from "react";
-import {Card, Button} from "antd";
+import {Card} from "antd";
 import InfiniteScroll from "react-infinite-scroller";
-import {BookOutlined, PlusOutlined, ProjectOutlined} from "@ant-design/icons";
+import {ProjectOutlined} from "@ant-design/icons";
 import CapacitacionCard from "./CapacitacionCard";
 import CrearCapacitacion from "./CrearCapacitacion";
 

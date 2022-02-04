@@ -84,7 +84,7 @@ export default class TablaOfertarVisible extends React.Component{
         return(
             <div>
                 <h1 align='center'>MIS OFERTAS</h1>
-                <table className="default" style={{background:'#3A506B', margin:'auto', borderColor:'#ffffff'}}>
+                <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff'}}>
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
                         <th style={{width:'150px'}}>Oferta</th>

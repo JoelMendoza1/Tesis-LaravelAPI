@@ -15,7 +15,7 @@ export default function OfertarPage(){
                 subTitle="En este modulo permitirá crear, visualizar, editar, borrar, ocultar, publicar las ofertas de una Empresa"
                 style={{background:"#ffffff"}}
             />
-            <Card style={{height:'482px', overflow:'auto', paddingTop:'20px'}}>
+            <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>
                 <InfiniteScroll>
                     <Ofertar/>
                     <Divider/>

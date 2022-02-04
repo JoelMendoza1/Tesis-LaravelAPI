@@ -1,7 +1,7 @@
 import React from "react";
-import {Card, Button} from "antd";
+import {Card} from "antd";
 import InfiniteScroll from "react-infinite-scroller";
-import {BookOutlined, PlusOutlined} from "@ant-design/icons";
+import {BookOutlined} from "@ant-design/icons";
 import InstruccionCard from "./InstruccionCard";
 import CrearInstruccion from "./CrearInstruccion";
 

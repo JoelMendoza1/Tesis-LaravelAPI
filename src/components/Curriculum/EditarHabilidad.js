@@ -1,7 +1,6 @@
 import {Button, Form, Input, message, Modal, Slider} from "antd";
 import {
     EditOutlined,
-    TranslationOutlined,
     ControlOutlined, ToolOutlined, FileTextOutlined
 } from "@ant-design/icons";
 import React from "react";

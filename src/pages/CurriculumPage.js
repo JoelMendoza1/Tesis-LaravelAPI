@@ -18,7 +18,7 @@ export default function CurriculumPage(){
                 subTitle="En este modulo mostrará el curriculum del Pasante en donde podrá editar y eliminar los siguientes parametros"
                 style={{background:"#ffffff"}}
             />
-            <Card style={{height:'76vh', overflow:'auto', paddingTop:'20px'}}>
+            <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>
                 <InfiniteScroll>
                     <Row>
                         <Col span={12}>

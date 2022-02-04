@@ -3,33 +3,39 @@ import {AutoComplete, Button, Form, Input, Modal, Select,message} from "antd";
 import {Option} from "antd/es/mentions";
 import axios from "axios";
 import {API} from "../../services/API";
+import {PlusOutlined} from "@ant-design/icons";
 export default class ModalCrearEmpresa extends React.Component {
     constructor(props) {
         super(props);
         this.state = ({
                 //usuarios: [],
                 modal: false,
-                fileList: [],
-                imageUrl: null,
+                selectedFile: null,
+                nameFile: null,
                 user_id: props.iduser,
             }
         )
     }
-    componentDidMount() {
-
+    fileSelectedHandler= event =>{
+        console.log(event.target.files[0].name)
+        this.setState({
+            selectedFile: event.target.files[0],
+            nameFile:event.target.files[0].name
+        })
+        message.success("Foto Cargada")
+        message.info("Presione el boton subir foto")
     }
     okModal = async (userData) => {
         console.log(userData)
-        const datos = {
-            RUC: userData.ruc,
-            nombreEmpresa: userData.razonSocial,
-            tipoEmpresa: userData.tipoEmpresa,
-            telefonoEmpresa: userData.telefono,
-            emailEmpresa: userData.email,
-            direccionEmpresa: userData.direccion,
-            imagen: userData.imagenPerfil
-        }
-        console.log(datos)
+        const datos =new FormData();
+        datos.append('RUC', userData.ruc);
+        datos.append('nombreEmpresa', userData.razonSocial);
+        datos.append('tipoEmpresa', userData.tipoEmpresa);
+        datos.append('telefonoEmpresa', userData.telefono);
+        datos.append('emailEmpresa', userData.email);
+        datos.append('direccionEmpresa', userData.direccion);
+        datos.append('image', this.state.selectedFile);
+
         console.log(this.props.iduser)
         let url = API + 'users/'+this.state.user_id+'/empresas';
         const token = localStorage.getItem('token')
@@ -49,7 +55,7 @@ export default class ModalCrearEmpresa extends React.Component {
                 window.location.reload();
             }
         ).catch(e => {
-            console.log(e.response.data.message)
+            console.log(e.response.data)
             message.error('Error ' + e.response.data.message);
         })
     }
@@ -66,7 +72,17 @@ export default class ModalCrearEmpresa extends React.Component {
     render() {
         return (
             <div>
-                <Button type="primary" shape="round" onClick={this.encenderModal}>Crear Empresa</Button>
+                <Button
+                    style={{
+                        backgroundColor:'#1E1E2F',
+                        color:'#ffffff',
+                        border:"#ffffff"
+                    }}
+                    type="primary"
+                    onClick={this.encenderModal}
+                >
+                    <PlusOutlined/> Crear Empresa
+                </Button>
                 <Modal
                     title="Editar Perfil "
                     visible={this.state.modal}
@@ -88,14 +104,13 @@ export default class ModalCrearEmpresa extends React.Component {
                         <Form.Item
                             name='imagenPerfil'
                             label='Imagen de perfil'
-                            rules={ [
-                                {
-                                    required: true,
-                                    message: 'Sube tu foto'
-                                }
-                            ] }
                         >
-                            <input type='file'/>
+                            <input
+                                type='file'
+                                onChange={this.fileSelectedHandler}
+                                ref={fileInput=>this.fileInput=fileInput}
+                                accept="image/*"
+                            />
                         </Form.Item>
                         <Form.Item
                             label="Razón social"

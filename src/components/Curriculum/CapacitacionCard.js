@@ -3,11 +3,9 @@ import {Row, message, Card, Col, Typography, Button} from "antd";
 import {API} from "../../services/API";
 import axios from "axios";
 import {BankOutlined, CalendarOutlined, FileTextOutlined} from "@ant-design/icons";
-import EditarInstruccion from "./EditarInstruccion";
-import EliminarInstruccion from "./EliminarInstruccion";
-import EditarInstruccionDocument from "./EditarInstruccionDocument";
 import EditarCapacitacion from "./EditarCapacitacion";
 import EliminarCapacitacion from "./EliminarCapacitacion";
+import EditarCapacitacionDocument from "./EditarCapacitacionDocument";
 const {Text}= Typography;
 export default class CapacitacionCard extends React.Component{
     constructor(props) {
@@ -107,7 +105,7 @@ export default class CapacitacionCard extends React.Component{
                                         />
                                     </Col>
                                     <Col span={6}>
-                                        <EditarInstruccionDocument id={value.id}/>
+                                        <EditarCapacitacionDocument id={value.id}/>
                                     </Col>
                                 </Row>
                             </Col>

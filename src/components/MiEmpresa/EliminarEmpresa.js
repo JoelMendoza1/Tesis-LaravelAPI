@@ -2,6 +2,7 @@ import React from "react";
 import {Button, message, Popconfirm} from "antd";
 import {API} from "../../services/API";
 import axios from "axios";
+import {DeleteOutlined} from "@ant-design/icons";
 export default function EliminarEmpresa(props){
     const confirm=async()=>{
         let url = API + 'empresas/'+props.idempresa;
@@ -50,7 +51,7 @@ export default function EliminarEmpresa(props){
                 okText="Eliminar"
                 cancelText="Cancelar"
             >
-                <Button type="primary" shape="round" danger title="Eliminar">Eliminar</Button>
+                <Button type="primary" danger title="Eliminar"><DeleteOutlined/>Eliminar</Button>
             </Popconfirm>
         </div>
     )

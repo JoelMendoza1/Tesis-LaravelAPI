@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {Button, message, Modal} from "antd";
 import axios from "axios";
 import {API} from "../../services/API";
-import { PictureOutlined, UploadOutlined} from "@ant-design/icons";
-export  default class CargarImgen extends Component{
+import {PictureOutlined, UploadOutlined} from "@ant-design/icons";
+export  default class EditImageEmpresa extends Component{
     state ={
         selectedFile: null,
         nameFile: null,
-        id: this.props.id
+        id:this.props.idempresa
     }
     fileSelectedHandler= event =>{
         console.log(event.target.files[0].name)
@@ -19,7 +19,7 @@ export  default class CargarImgen extends Component{
         message.info("Presione el boton subir foto")
     }
     fileUploadHandler=()=>{
-        let url = API + 'usersImagen/'+this.state.id;
+        let url = API + 'empresaImagen/'+this.state.id;
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')
         const config = {
@@ -31,10 +31,6 @@ export  default class CargarImgen extends Component{
         axios.post(url,fd,config).then(res=>{
             console.log(res);
             window.location.reload();
-
-        }).catch(e=>{
-            console.log(e.response.data)
-            message.error('Error '+e);
         })
     }
     apagarModal=()=>{
@@ -67,20 +63,20 @@ export  default class CargarImgen extends Component{
                     ]}
                     onCancel={this.apagarModal}
                 >
-                    <input
-                        type='file'
-                        onChange={this.fileSelectedHandler}
-                        ref={fileInput=>this.fileInput=fileInput}
-                        accept="image/*"
-                    />
+                <input
+                    type='file'
+                    onChange={this.fileSelectedHandler}
+                    ref={fileInput=>this.fileInput=fileInput}
+                    accept="image/*"
+                />
 
-                    <Button
-                        onClick={this.fileUploadHandler}
-                        size='default'
-                        style={{background:'#1E1E2F', color:"#ffffff"}}
-                    >
-                        <UploadOutlined/> Subir foto
-                    </Button>
+                <Button
+                    onClick={this.fileUploadHandler}
+                    size='default'
+                    style={{background:'#1E1E2F', color:"#ffffff"}}
+                >
+                    <UploadOutlined/> Subir foto
+                </Button>
                 </Modal>
             </div>
         );

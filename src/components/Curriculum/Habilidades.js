@@ -1,7 +1,7 @@
 import React from "react";
-import {Card, Button} from "antd";
+import {Card} from "antd";
 import InfiniteScroll from "react-infinite-scroller";
-import {PlusOutlined, ToolOutlined} from "@ant-design/icons";
+import {ToolOutlined} from "@ant-design/icons";
 import HabilidadesProgres from "./HabilidadesProgres";
 import CrearHabilidad from "./CrearHabilidad";
 

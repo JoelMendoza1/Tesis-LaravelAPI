@@ -15,7 +15,7 @@ export default class SolicitudesPage extends React.Component{
                     subTitle="En este modulo permitirá al Administrador rechazar, aprobar, ver perfil y descargar el documento de comprobación"
                     style={{background:"#ffffff"}}
                 />
-                <Card style={{height:'475px', overflow:'auto'}}>
+                <Card style={{height:'80vh', overflow:'auto'}}>
                     <InfiniteScroll>
                         <TabsSolicitudes />
                     </InfiniteScroll>

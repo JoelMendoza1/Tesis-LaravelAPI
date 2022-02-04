@@ -48,8 +48,9 @@ export default class PerfilesPage  extends React.Component{
                 }
 
 
-            }
-        )
+            }).catch(e=>{
+                console.log(e.response.data)
+            })
 
 
     }
@@ -80,7 +81,7 @@ export default class PerfilesPage  extends React.Component{
                     ]}
                 />
                     {this.state.usuarios.map((value, index) => (
-                        <Card key={index} style={{height:'73vh', paddingBottom:'0px'}}>
+                        <Card key={index} style={{height:'80vh', paddingBottom:'0px'}}>
                             <InfiniteScroll>
                             <Card style={{height:'18vh',paddingTop:'20px', background:'#55556D', paddingBottom:'0px'}} >
                                 <Row justify="start" align="top">
@@ -94,7 +95,7 @@ export default class PerfilesPage  extends React.Component{
                                                     borderSize:"30px"
                                                 }}>
                                         </Avatar>
-                                        <CargarImgen/>
+                                        <CargarImgen id={value.id}/>
                                     </Col>
                                     <Col span={10}>
                                         <Title level={2} style={{color:"#ffffff"}}>{value.name} {value.lastname}</Title>

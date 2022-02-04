@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e4b56ac1-c35a-4604-b3b1-81fc2a9787ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Curriculum/EditarCapacitacionDocument.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MiEmpresa/EditImageEmpresa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Registrar/ContentRegistrar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Registrar/HederRegistrar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/AuthProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/AuthProvider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Curriculum/CapacitacionCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Curriculum/CapacitacionCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Curriculum/Capacitaciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Curriculum/Capacitaciones.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Curriculum/EditarCapacitacion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Curriculum/EditarCapacitacion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Curriculum/EditarHabilidad.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Curriculum/EditarHabilidad.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Curriculum/Habilidades.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Curriculum/Habilidades.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Curriculum/Instrucion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Curriculum/Instrucion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard/LayoutDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/LayoutDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MiEmpresa/EliminarEmpresa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MiEmpresa/EliminarEmpresa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MiEmpresa/MiEmpresa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MiEmpresa/MiEmpresa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MiEmpresa/ModalCrearEmpresa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MiEmpresa/ModalCrearEmpresa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MiEmpresa/ModalEditEmpresa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MiEmpresa/ModalEditEmpresa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Ofertar/Ofertar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Ofertar/Ofertar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Ofertar/TablaOfertar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Ofertar/TablaOfertar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Ofertar/TablaOfertarOculto.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Ofertar/TablaOfertarOculto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Ofertar/TablaOfertarVisible.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Ofertar/TablaOfertarVisible.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Perfil/CargarImgen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Perfil/CargarImgen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CurriculumPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CurriculumPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/EmpresaPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EmpresaPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/OfertarPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OfertarPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/OfertasPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OfertasPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PerfilesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PerfilesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PostulacionPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PostulacionPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PostularPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PostularPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SolicitudesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SolicitudesPage.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="24D33cEBrGoL6z254pGKsVjM5Sv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4b56ac1-c35a-4604-b3b1-81fc2a9787ce" name="Changes" comment="" />
+      <created>1643151135483</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643151135483</updated>
+      <workItem from="1643151137523" duration="7872000" />
+      <workItem from="1643237991647" duration="10952000" />
+      <workItem from="1643323841460" duration="10563000" />
+      <workItem from="1643670282862" duration="8684000" />
+      <workItem from="1643762105231" duration="9113000" />
+      <workItem from="1643847781561" duration="9923000" />
+      <workItem from="1643928329866" duration="3229000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

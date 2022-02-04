@@ -11,10 +11,10 @@ export default function PostulacionPage(){
                 className="site-page-header"
                 onBack={() => window.history.back()}
                 title={<Title level={4}><NotificationOutlined /> Postulaciones P</Title>}
-                subTitle="En este modulo permitirá visualizar las postulaciones hechas eliminar, ver la oferta y monitorear el estado"
+                subTitle="En este modulo permitirá ver mis postulaciones, editarlas y eliminarlas"
                 style={{background:"#ffffff"}}
             />
-            <Card style={{height:'482px', overflow:'auto', paddingTop:'20px'}}>
+            <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>
                 <InfiniteScroll>
                     <TabsPostulacionP/>
                 </InfiniteScroll>
