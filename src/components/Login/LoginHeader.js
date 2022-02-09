@@ -5,7 +5,7 @@ import Routes from "../../constants/routes";
 import {NavLink} from "react-router-dom";
 import {ReadOutlined} from "@ant-design/icons";
 
-export default function HederRegistrar(){
+export default function LoginHeader(){
 
     return(
         <div>
@@ -19,9 +19,9 @@ export default function HederRegistrar(){
                 </Col>
                 <Col span={3} offset={8}>
                     <Menu mode="horizontal"  className={stylesNavigation.menu}>
-                        <Menu.Item key={Routes.LOGIN} >
+                        <Menu.Item key={Routes.REGISTER} >
                             <Button style={{backgroundColor:'#292F36', color:'#ffffff'}}>
-                                <NavLink to={ Routes.LOGIN } className={stylesNavigation.active} exact>Iniciar Sesión</NavLink>
+                                <NavLink to={ Routes.REGISTER } className={stylesNavigation.active} exact>Registrar</NavLink>
                             </Button>
                         </Menu.Item>
                     </Menu>

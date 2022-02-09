@@ -7,7 +7,7 @@ import {
     UserOutlined,
     QuestionOutlined,
     ShopOutlined,
-    NotificationOutlined, ReadOutlined, IdcardOutlined,
+    NotificationOutlined, ReadOutlined, IdcardOutlined, BookOutlined,
 } from '@ant-design/icons';
 import { NavLink, Switch} from "react-router-dom";
 import Routes from "../../constants/routes";
@@ -126,11 +126,18 @@ export default class LayoutDashboard extends React.Component {
                 <div>
                     {(this.state.cargandoMenu)?<Spin size="small" />:
                     <div>
-                        <Menu.Item key={Routes.SOLICITUDES} icon={<QuestionOutlined />} style={{display:this.state.administrador}} disabled={this.state.request}>
-                            <NavLink to={Routes.SOLICITUDES} visible={this.state.administrador}>
-                                Solicitudes
-                            </NavLink>
-                        </Menu.Item>
+                        <Menu.SubMenu key="sub1" icon={<QuestionOutlined />} title="Solicitudes">
+                            <Menu.Item key={Routes.SOLICITUDESEMPRESA} icon={<ShopOutlined />} style={{display:this.state.administrador}} disabled={this.state.request}>
+                                <NavLink to={Routes.SOLICITUDESEMPRESA} visible={this.state.administrador}>
+                                    Empresa
+                                </NavLink>
+                            </Menu.Item>
+                            <Menu.Item key={Routes.SOLICITUDESPASANTE} icon={<BookOutlined/>} style={{display:this.state.administrador}} disabled={this.state.request}>
+                                <NavLink to={Routes.SOLICITUDESPASANTE} visible={this.state.administrador}>
+                                    Pasante
+                                </NavLink>
+                            </Menu.Item>
+                        </Menu.SubMenu>
                         <Menu.Item key={Routes.OFERTAS} icon={<FundOutlined />} style={{display:this.state.pasante}} disabled={this.state.request}>
                             <NavLink to={Routes.OFERTAS}>
                                 Ofertas
@@ -160,9 +167,6 @@ export default class LayoutDashboard extends React.Component {
                             <NavLink to={Routes.EMPRESA}>
                                 Mi Empresa
                             </NavLink>
-                        </Menu.Item>
-                        <Menu.Item>
-                            <Logout/>
                         </Menu.Item>
                     </div>
                     }
@@ -213,7 +217,8 @@ export default class LayoutDashboard extends React.Component {
                     >
                             <Switch>
                                 <PrivateRoute path={Routes.DASHBOARD} exact component={PerfilesPage}/>
-                                <PrivateRoute path={Routes.SOLICITUDES} exact component={SolicitudesPage}/>
+                                <PrivateRoute path={Routes.SOLICITUDESPASANTE} exact component={SolicitudesPage}/>
+                                <PrivateRoute path={Routes.SOLICITUDESEMPRESA} exact component={SolicitudesPage}/>
                                 <PrivateRoute path={Routes.OFERTAS} exact component={OfertasPage}/>
                                 <PrivateRoute path={Routes.POSTULACION} exact component={PostulacionPage}/>
                                 <PrivateRoute path={Routes.OFERTAR} exact component={OfertarPage}/>

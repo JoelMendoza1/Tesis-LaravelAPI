@@ -75,7 +75,7 @@ export default class ModalEditPassword extends React.Component{
     render() {
         return(
             <div>
-                <Button  style={{backgroundColor:'#1E1E2F', color:'#ffffff', border:"#ffffff"}}
+                <Button  style={{backgroundColor:'#1E1E2F', color:'#ffffff', border:"#ffffff", marginTop:'15px', width:'26vh'}}
                          onClick={this.encenderModal}
                 >
                     <KeyOutlined className='botonDash' style={{ fontSize:'10px' }}/> Cambiar contraseña

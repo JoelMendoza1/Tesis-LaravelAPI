@@ -36,7 +36,6 @@ export default class NavigationDashboard extends React.Component{
                         imagen:[nuevoDato]
                     })
                 }
-
             }
         )
     }
@@ -45,8 +44,7 @@ export default class NavigationDashboard extends React.Component{
             <div>
                 {this.state.usuarios.map((value, index) => (
                     <Row justify="end" key={index}>
-
-                        <Col span={2} >
+                        <Col span={1} >
                                 <Avatar
                                     src={this.state.imagen}
                                     style={{
@@ -58,10 +56,9 @@ export default class NavigationDashboard extends React.Component{
                                 </Avatar>
                         </Col>
                         <Col span={7} >
-
                                 <h1 style={{color:'#ffffff'}}>{value.name} {value.lastname}</h1>
                         </Col>
-                        <Col span={7}>
+                        <Col span={4}>
                             <Logout/>
                         </Col>
                     </Row>

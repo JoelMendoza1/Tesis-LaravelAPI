@@ -51,7 +51,7 @@ export  default class CargarImgen extends Component{
     render() {
         return (
             <div>
-                <Button  style={{backgroundColor:'#1E1E2F', color:'#ffffff', border:"#ffffff"}}
+                <Button  style={{backgroundColor:'#1E1E2F', color:'#ffffff', border:"#ffffff", marginTop:'15px', width:'26vh'}}
                          onClick={this.encenderModal}
                          title="Editar imegen de perfil"
                 >

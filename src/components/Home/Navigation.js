@@ -23,7 +23,7 @@ export default function Navigation(){
                 <Menu.Item key={Routes.REGISTER}>
                     <NavLink to={ Routes.REGISTER } style={{color:'#ffffff'}} exact>Registrate</NavLink>
                 </Menu.Item>
-                <Menu.Item key={Routes.LOGIN} style={{paddingLeft:'300px'}}>
+                <Menu.Item key={Routes.LOGIN} >
                     <Button style={{backgroundColor:'#292F36', color:'#ffffff'}}>
                         <NavLink to={ Routes.LOGIN } className={stylesNavigation.active} exact>Iniciar Sesión</NavLink>
                     </Button>
@@ -31,7 +31,7 @@ export default function Navigation(){
                 <Menu.Item>
                         <a href="https://github.com/joelMendoza1" target="_blank" style={{color:'#ffffff'}}> <GithubOutlined /></a>
                 </Menu.Item>
-                <Menu.Item style={{float: 'right'}}>
+                <Menu.Item>
                     <a href="https://www.facebook.com/" target="_blank" style={{color:'#ffffff'}}> <FacebookOutlined /></a>
                 </Menu.Item>
             </Menu>

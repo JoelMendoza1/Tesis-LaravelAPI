@@ -69,16 +69,6 @@ export default class PerfilesPage  extends React.Component{
                     title={<Title level={4}><UserOutlined /> Perfil</Title>}
                     subTitle="En este módulo permitirá al usuario ver, editar, cambiar contraseña y cambiar foto de perfil."
                     style={{background:"#ffffff"}}
-                    extra={[
-                        <Row>
-                            <Col span={11}>
-                                <ModalEditUser/>
-                            </Col>
-                            <Col span={12}>
-                                <ModalEditPassword/>
-                            </Col>
-                        </Row>
-                    ]}
                 />
                     {this.state.usuarios.map((value, index) => (
                         <Card key={index} style={{height:'80vh', paddingBottom:'0px'}}>
@@ -96,6 +86,8 @@ export default class PerfilesPage  extends React.Component{
                                                 }}>
                                         </Avatar>
                                         <CargarImgen id={value.id}/>
+                                        <ModalEditUser/>
+                                        <ModalEditPassword/>
                                     </Col>
                                     <Col span={10}>
                                         <Title level={2} style={{color:"#ffffff"}}>{value.name} {value.lastname}</Title>
