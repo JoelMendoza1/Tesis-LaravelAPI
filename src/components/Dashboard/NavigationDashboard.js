@@ -1,8 +1,12 @@
 import React from "react";
-import {Avatar, Col, Row} from "antd";
+import {Avatar, Button, Menu, notification} from "antd";
 import Logout from "./Logout";
 import {API} from "../../services/API";
 import axios from "axios";
+import { InfoCircleOutlined
+} from "@ant-design/icons";
+import Routes from "../../constants/routes";
+import {NavLink} from "react-router-dom";
 
 export default class NavigationDashboard extends React.Component{
     constructor(props) {
@@ -43,8 +47,42 @@ export default class NavigationDashboard extends React.Component{
         return(
             <div>
                 {this.state.usuarios.map((value, index) => (
-                    <Row justify="end" key={index}>
-                        <Col span={1} >
+                    <Menu mode="horizontal">
+                        <Menu.Item >
+                            <Button
+                                type="text"
+                                style={{
+                                    color: '#ffffff',
+                                }}
+                                onClick={()=>{
+                                    notification["info"]({
+                                        message: `Estado de usuario `,
+                                        description:value.descriptionRequest,
+                                        placement:'bottomRight'
+                                    })
+                                }}
+
+                            >
+                                {
+                                    (value.request===null)?
+                                        <><InfoCircleOutlined title='Información pendiente'/> </>
+                                        :<div>
+                                            {
+                                                (value.request===0)?
+                                                    <><InfoCircleOutlined title='Usuario Rechazado'/> </>
+                                                    :
+                                                    <><InfoCircleOutlined title='Usuario autorizado'/></>
+                                            }
+                                        </div>
+
+                                }
+                            </Button>
+                        </Menu.Item>
+                        <Menu.Item key={Routes.DASHBOARD}>
+                            <NavLink to={ Routes.DASHBOARD} style={{color:'#ffffff'}} exact>{value.name} {value.lastname}</NavLink>
+                        </Menu.Item>
+                        <Menu.Item key={Routes.DASHBOARD}>
+                            <NavLink to={ Routes.DASHBOARD } style={{color:'#ffffff'}} exact>
                                 <Avatar
                                     src={this.state.imagen}
                                     style={{
@@ -54,14 +92,14 @@ export default class NavigationDashboard extends React.Component{
                                     }}>
                                     {value.name[0]} {value.lastname[0]}
                                 </Avatar>
-                        </Col>
-                        <Col span={7} >
-                                <h1 style={{color:'#ffffff'}}>{value.name} {value.lastname}</h1>
-                        </Col>
-                        <Col span={4}>
+                            </NavLink>
+                        </Menu.Item>
+
+                        <Menu.Item >
                             <Logout/>
-                        </Col>
-                    </Row>
+                        </Menu.Item>
+
+                    </Menu>
                 ))}
             </div>
         )

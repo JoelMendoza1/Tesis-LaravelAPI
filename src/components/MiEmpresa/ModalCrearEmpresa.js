@@ -87,7 +87,7 @@ export default class ModalCrearEmpresa extends React.Component {
                     title="Editar Perfil "
                     visible={this.state.modal}
                     footer={[
-                        <Button key="back" style={{background: '#1E1E2F', color: '#ffffff'}} onClick={this.apagarModal}>
+                        <Button key="back" style={{background: '#1E1E2F', color: '#ffffff', width:'26vh'}} onClick={this.apagarModal}>
                             Cancelar
                         </Button>
                     ]}

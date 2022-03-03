@@ -1,8 +1,6 @@
 import React from "react";
 import { Tabs } from 'antd';
 import TablaOfertar from "./TablaOfertar";
-import TablaOfertarVisible from "./TablaOfertarVisible";
-import TablaOfertarOculto from "./TablaOfertarOculto";
 const { TabPane } = Tabs;
 export default class TabsOfertar extends React.Component{
 
@@ -11,13 +9,15 @@ export default class TabsOfertar extends React.Component{
             <div style={{margin:'0px'}}>
                 <Tabs defaultActiveKey="1"  style={{margin:"auto"}}>
                     <TabPane tab="Todos" key="1">
-                        <TablaOfertar/>
+                        <TablaOfertar rutaEmpresa='empresas/' rutaOferta='/ofertas'/>
                     </TabPane>
                     <TabPane tab="Publicados" key="2">
-                        <TablaOfertarVisible/>
+                        <TablaOfertar rutaEmpresa='empresas/' rutaOferta='/visibles'/>
+
                     </TabPane>
                     <TabPane tab="Ocultos" key="3">
-                        <TablaOfertarOculto/>
+                        <TablaOfertar rutaEmpresa='empresas/' rutaOferta='/ocultos'/>
+
                     </TabPane>
                 </Tabs>
             </div>

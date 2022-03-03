@@ -19,15 +19,16 @@ export default function ReprobarUser(props){
         const { TextArea } = Input;
         return(
             <div>
-                <h5>Escribe la razon de reprobación</h5>
+                <h5>Escribe la razón de rechazo</h5>
                 <TextArea showCount maxLength={100} onChange={handleInputChange}
+                          minLength={1}
                           rules={[{ required: true, message: 'Por favor ingresa la razón del rechazo' }]}/>
             </div>
         )
     }
     const confirm=async()=>{
-        console.log(datos.undefined)
-        if(datos.undefined===""){
+        console.log(datos)
+        if(!datos.undefined){
             message.error('Razón de rechazo no especificada');
         }else{
             let url = API + 'users/'+props.id;
@@ -43,13 +44,11 @@ export default function ReprobarUser(props){
             }
             axios.put(url,data, config).then(
                 response=>{
-                    message.success('Reprobado');
+                    message.success('Rechazado');
                     console.log(response.data)
                     console.log(response.data.request)
                     console.log(response.data.descriptionRequest)
                     window.location.reload();
-
-
                 }
             ).catch(e=>{
                 console.log(e)
@@ -72,7 +71,7 @@ export default function ReprobarUser(props){
                 okText="Reprobar"
                 cancelText="Cancelar"
             >
-                <Button shape="circle" style={{backgroundColor:"red"}} icon={<CloseOutlined />} title="Rechazar"/>
+                <Button shape="circle" style={{color:"red",background:'transparent'}} icon={<CloseOutlined />} title="Rechazar"/>
             </Popconfirm>
         </div>
         )

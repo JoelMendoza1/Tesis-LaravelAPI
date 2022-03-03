@@ -18,7 +18,8 @@ export default function FormRegistrar(){
         carrera: '',
         semestre: '',
         document: 'Cargar curriculum academico',
-        registarURL: 'registrarPasante'
+        registarURL: 'registrarPasante',
+        typeUser:'P'
     });
     const [selectedFile, setSelectedFile]=React.useState("");
     const [nameFile, setNameFile]=React.useState("");
@@ -54,6 +55,7 @@ export default function FormRegistrar(){
         datos.append('document', selectedFile)
         datos.append('image', selectedImage)
         datos.append('descriptionRequest', 'Espere estamos procesando su solicitud para añadirse a esta plataforma')
+        datos.append('typeUser',empresaOrPasante.typeUser)
         let url = API +empresaOrPasante.registarURL;
 
         axios.post(url,datos).then(
@@ -84,7 +86,8 @@ export default function FormRegistrar(){
                 carrera: 'none',
                 semestre: 'none',
                 document: 'Cargar RUC',
-                registarURL: 'registrarEmpresa'
+                registarURL: 'registrarEmpresa',
+                typeUser:'E'
             })
         }
         if (data===false){
@@ -94,7 +97,8 @@ export default function FormRegistrar(){
                 carrera: '',
                 semestre: '',
                 document: 'Cargar curriculum academico',
-                registarURL: 'registrarPasante'
+                registarURL: 'registrarPasante',
+                typeUser:'P'
             })
         }
     }
@@ -109,7 +113,7 @@ export default function FormRegistrar(){
 
         }
         setLoding(false)
-        message.success("Foto Cargada")
+        message.success("Foto Cargada "+nameFile)
         message.info("Next para crear la contraseña")
     }
     const imageSelectedHandler= event =>{
@@ -122,7 +126,7 @@ export default function FormRegistrar(){
             setNextButton('')
         }
         setLoding(false)
-        message.success("Foto Cargada")
+        message.success("Foto Cargada "+nameImage)
         message.info("Next para crear la contraseña")
     }
     return(

@@ -77,14 +77,14 @@ export default class InstruccionCard extends React.Component{
                 {this.state.instrucciones.map((value, index) =>
                     <Card
                         key={index}
-                        title={value.instruccion}
-                        style={{background:'#55556D', margin:'10px'}}
+                        title={<h4 style={{color:'#ffffff'}}>{value.instruccion}</h4>}
+                        style={{background:'#1E1E2F', margin:'10px'}}
                     >
                         <Row  align="middle">
                             <Col span={12}>
-                                <Text level={5}> <StockOutlined/> <b>Nivel de instrucción: </b> {value.nivelInstrucion}</Text><br/>
-                                <Text level={5}> <BankOutlined/> <b>Institución: </b> {value.institucion}</Text><br/>
-                                <Text level={5}> <CrownOutlined/> <b>Especialización: </b> {value.especializacion}</Text><br/>
+                                <Text level={5} style={{color:'#ffffff'}}> <StockOutlined/> <b>Nivel de instrucción: </b> {value.nivelInstrucion}</Text><br/>
+                                <Text level={5} style={{color:'#ffffff'}}> <BankOutlined/> <b>Institución: </b> {value.institucion}</Text><br/>
+                                <Text level={5} style={{color:'#ffffff'}}> <CrownOutlined/> <b>Especialización: </b> {value.especializacion}</Text><br/>
                             </Col>
                             <Col span={12}>
                                 <Row justify="center">

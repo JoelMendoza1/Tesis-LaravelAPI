@@ -32,7 +32,7 @@ export default function AprobarUser(props){
     }
     return(
         <div>
-            <Button shape="circle" style={{backgroundColor:'green'}} icon={<CheckOutlined />} title="Aprobar"  onClick={onClickAprobar}/>
+            <Button shape="circle" style={{color:'green',background:'transparent', }} icon={<CheckOutlined />} title="Aprobar"  onClick={onClickAprobar}/>
         </div>
         )
 }

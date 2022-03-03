@@ -13,9 +13,9 @@ export default function Capacitaciones() {
                 overflow:'auto',
                 paddingTop:'20px',
                 margin:'10px',
-                background: '#55556D'
+                background: '#1E1E2F'
             }}
-            title={<h1><ProjectOutlined/> Capacitaciones</h1>}
+            title={<h1 style={{color:'#ffffff'}}><ProjectOutlined/> Capacitaciones</h1>}
             extra={[
                 <CrearCapacitacion/>,
             ]}

@@ -1,15 +1,7 @@
 import React from "react";
-import useAuth from "../auth/useAuth";
-import {NavLink, useHistory} from "react-router-dom";
-import Routes from "../constants/routes";
-import {Card, Layout, message} from 'antd';
-import {API} from "../services/API";
+import {Layout} from 'antd';
 import "../styles/login.css";
-import { Form, Input, Button, Checkbox } from 'antd';
-import {MailOutlined, KeyOutlined, ReadOutlined} from '@ant-design/icons';
-import axios from "axios";
 import FooterComponent from "../components/FooterComponent";
-import ContentRegistrar from "../components/Registrar/ContentRegistrar";
 import LoginHeader from "../components/Login/LoginHeader";
 import ContentLogin from "../components/Login/ContentLogin";
 const { Footer, Header, Content } = Layout;

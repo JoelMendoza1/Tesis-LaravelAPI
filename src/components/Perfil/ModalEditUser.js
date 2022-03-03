@@ -110,21 +110,43 @@ export default class ModalEditUser extends React.Component{
                             <Form.Item
                                 label="Nombre"
                                 name="nombre"
-                                rules={[{whitespace:true, message: 'Por favor ingrese su nombre!' }]}
+                                rules={[{
+                                    whitespace:true,
+                                    message: 'Por favor ingrese su nombre!'
+                                },{
+                                    pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                    message: 'Ingresar solo letras!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input placeholder="Nombre" />
                             </Form.Item>
                             <Form.Item
                                 label="Apellido"
                                 name="apellido"
-                                rules={[{ required: true,whitespace:true, message: 'Por favor ingrese su apellido!' }]}
+                                rules={[{
+                                    required: true,
+                                    whitespace:true,
+                                    message: 'Por favor ingrese su apellido!'
+                                },{
+                                    pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                    message: 'Ingresar solo letras!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input placeholder="Apellido" />
                             </Form.Item>
                             <Form.Item
                                 label="Email"
                                 name="email"
-                                rules={[{ required: true,whitespace:true, message: 'Por favor ingrese un Email!' }]}
+                                rules={[{
+                                    required: true,
+                                    whitespace:true,
+                                    message: 'Por favor ingrese un Email!' },
+                                    {
+                                    message: 'Ingresar un email valido!',
+                                    type:'email',
+                                }]}
                             >
                                 <AutoComplete
                                     style={{ width: '70%' }}
@@ -134,14 +156,46 @@ export default class ModalEditUser extends React.Component{
                             <Form.Item
                                 label="Número de Cédula"
                                 name="cedula"
-                                rules={[{ required: true,whitespace:true, message: 'Por favor ingrese su número de cédula!' }]}
+                                rules={[{
+                                    required: true,
+                                    message: 'Cédula requerida!',
+                                },{
+                                    whitespace:true,
+                                    message: 'Ha ingresado espacios en blanco!',
+                                },{
+                                    max:10,
+                                    message: 'Maximo 10 caracteres!!',
+                                },{
+                                    min:10,
+                                    message: 'Minimo 10 caracteres!!!',
+                                },{
+                                    pattern: /^[0-9]+$/,
+                                    message: 'Ingresar solo numeros!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input placeholder="1700000000"/>
                             </Form.Item>
                             <Form.Item
                                 label="Télefono"
                                 name="telefono"
-                                rules={[{ required: true,whitespace:true, message: 'Por favor ingrese su número de télefono!' }]}
+                                rules={[{
+                                    required: true,
+                                    message: 'Télefono requerido!',
+                                },{
+                                    whitespace:true,
+                                    message: 'Ha ingresado espacios en blanco!',
+                                },{
+                                    max:10,
+                                    message: 'Maximo 10 caracteres!!',
+                                },{
+                                    min:10,
+                                    message: 'Minimo 10 caracteres!!!',
+                                },{
+                                    pattern: /^[0-9]+$/,
+                                    message: 'Ingresar solo numeros!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input placeholder="0900000000" />
                             </Form.Item>
@@ -162,7 +216,15 @@ export default class ModalEditUser extends React.Component{
                             <Form.Item
                                 label="Institución"
                                 name="institucion"
-                                rules={[{ required: true,whitespace:true, message: 'Por favor ingrese la instituciondonde pertenese!' }]}
+                                rules={[{
+                                    required: true,
+                                    whitespace:true,
+                                    message: 'Por favor ingrese la instituciondonde pertenese!'
+                                },{
+                                    pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                    message: 'Ingresar solo letras!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input placeholder="Institucion"/>
                             </Form.Item>

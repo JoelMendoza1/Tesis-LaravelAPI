@@ -13,9 +13,9 @@ export default function Trayectoria() {
                     overflow:'auto',
                     paddingTop:'20px',
                     margin:'10px',
-                    background: '#55556D'
+                    background: '#1E1E2F',
                 }}
-                title={<h1><IdcardOutlined/> Trayectoria Laboral</h1>}
+                title={<h1 style={{color:'#ffffff'}}><IdcardOutlined/> Trayectoria Laboral</h1>}
                 extra={[
                     <CrearTrayectoria/>,
                 ]}

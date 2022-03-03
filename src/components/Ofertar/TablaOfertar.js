@@ -7,19 +7,22 @@ import OcultarOferta from "./OcultarOferta";
 import PublicarOferta from "./PublicarOferta";
 import VerOferta from "./VerOferta";
 import EditarOfertas from "./EditarOfertas";
+import Search from "antd/es/input/Search";
 export default class TablaOfertar extends React.Component{
     constructor(props) {
         super(props);
         this.state =({
             ofertas: [],
             total:0,
+            rutaEmpresa: props.rutaEmpresa,
+            rutaOferta: props.rutaOferta
         })
     }
     componentDidMount(){
         this.getUser()
     }
     async consultaAPI(id){
-        let url = API + 'empresas/'+id+'/ofertas';
+        let url = API + this.state.rutaEmpresa+id+this.state.rutaOferta;
         console.log(url)
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')
@@ -33,12 +36,13 @@ export default class TablaOfertar extends React.Component{
             response=>{
                 console.log(response)
                 this.setState({
-                    ofertas: response.data.data,
-                    total: response.data.data.length
+                    ofertas: response.data,
                 })
                 console.log(this.state.ofertas)
             }
-        )
+        ).catch(e=>{
+            console.log(e.response)
+        })
     }
     getUser=()=>{
         let url = API + 'usuarios';
@@ -84,6 +88,22 @@ export default class TablaOfertar extends React.Component{
         return(
             <div>
                 <h1 align='center'>MIS OFERTAS</h1>
+                <Search placeholder="Busca tú oferta o carrera"
+                        style={{
+                            width: 400,
+                            marginTop:'20px',
+                            marginRight:'auto',
+                            marginLeft:'auto',
+                            display:'block',
+                            paddingBottom:'10px'
+                        }}
+                        onChange={event=>{
+                            console.log(event.target.value)
+                            this.setState({
+                                buscarTerm:event.target.value
+                            })
+                        }}
+                />
                 <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff'}}>
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
@@ -97,7 +117,13 @@ export default class TablaOfertar extends React.Component{
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.ofertas.map((value, index) =>
+                    {this.state.ofertas.filter(((value) => {
+                        if(!this.state.buscarTerm){
+                            return value
+                        }else if (value.oferta.toLowerCase().includes(this.state.buscarTerm.toLowerCase())){
+                            return value
+                        }
+                    })).map((value, index) =>
                         <tr key={index}>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
                                 <h5 >{value.oferta}</h5>

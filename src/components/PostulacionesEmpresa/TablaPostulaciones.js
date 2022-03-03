@@ -11,14 +11,15 @@ export default class TablaPostulaciones extends React.Component{
         super(props);
         this.state =({
             ofertas: [],
-            total:0
+            total:0,
+            ruta: props.ruta
         })
     }
     componentDidMount(){
         this.consultaAPI()
     }
     async consultaAPI(){
-        let url = API + 'ofertas/'+this.props.idoferta+'/postulacions';
+        let url = API + 'ofertas/'+this.props.idoferta+this.state.ruta;
         console.log(url)
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')
@@ -37,7 +38,9 @@ export default class TablaPostulaciones extends React.Component{
                 })
                 console.log(this.state.ofertas)
             }
-        )
+        ).catch(e=>{
+            console.log(e.response)
+        })
     }
 
     render() {

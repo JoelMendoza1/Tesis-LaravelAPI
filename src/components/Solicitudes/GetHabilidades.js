@@ -1,40 +1,18 @@
 import React from "react";
-import {Row, message, Progress, Card, Col, Typography, Descriptions} from "antd";
+import {Card, Descriptions, message, Progress, Typography} from "antd";
 import {API} from "../../services/API";
 import axios from "axios";
-import EditarHabilidad from "./EditarHabilidad";
-import EliminarHabilidad from "./EliminarHabilidad";
- const {Text}= Typography;
-export default class HabilidadesProgres extends React.Component{
+const {Text}= Typography;
+export default class GetHabilidades extends React.Component{
     constructor(props) {
         super(props);
         this.state =({
             habilidades: [],
+            id: props.id
         })
     }
     componentDidMount(){
-        this.getUser()
-    }
-    async getUser(){
-        let url = API + 'usuarios';
-        const token =localStorage.getItem('token')
-        const t= token.replace(/['"]+/g, '')
-        const config = {
-            headers: {
-                Authorization: `Bearer ${t}`,
-                Accept: 'application/json'
-            }
-        };
-        axios.get(url, config).then(
-            response=>{
-                this.getHabilidad(response.data.id)
-            }
-        ).catch(
-            e=>{
-                console.log(e.message)
-                message.error("Usuario no encontrado!")
-            }
-        )
+        this.getHabilidad(this.state.id)
     }
     getHabilidad= async (id) => {
         let url = API + 'users/'+id+'/habilidades';
@@ -64,41 +42,26 @@ export default class HabilidadesProgres extends React.Component{
             }
         )
     }
-    render(){
-        return (
+    render() {
+        return(
             <div>
                 {this.state.habilidades.map((value, index) =>
                     <Card
                         key={index}
-                        title={<h4 style={{color:'#ffffff'}}>{value.habilidad}</h4>}
-                        style={{background:'#1E1E2F', margin:'10px'}}
+                        title={value.habilidad}
+                        style={{background:'#55556D', margin:'10px'}}
                     >
-                        <Row  align="middle">
-                            <Col span={12}>
                                 <Progress
                                     type="circle"
                                     percent={value.dominio}
                                     strokeColor={{
                                         '0%': '#108ee9',
-                                        '100%': '#55556D',
+                                        '100%': '#1E1E2F',
                                     }}
-                                    format={percent => <h4 style={{color:'#ffffff'}}>{value.dominio}%</h4>}
                                     width={90}
                                     style={{margin:'20px'}}
                                 />
                                 <Text level={5}> Dominio</Text>
-                            </Col>
-                            <Col span={12}>
-                                <Row justify="center">
-                                    <Col span={6} >
-                                        <EditarHabilidad id={value.id}/>
-                                    </Col>
-                                    <Col span={6}>
-                                        <EliminarHabilidad id={value.id}/>
-                                    </Col>
-                                </Row>
-                            </Col>
-                        </Row>
                         <Descriptions
                             title="Descripcion:"
                             style={{ background:"#ffffff", padding:'20px'}}

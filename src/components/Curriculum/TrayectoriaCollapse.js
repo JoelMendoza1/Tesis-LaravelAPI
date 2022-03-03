@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import EditarTrayectoria from "./EditarTrayectoria";
 import EliminarTrayectoria from "./EliminarTrayectoria";
+import '../../styles/collapse.css'
 const { Panel } = Collapse;
 export default class TrayectoriaCollapse extends React.Component{
     constructor(props) {
@@ -76,14 +77,15 @@ export default class TrayectoriaCollapse extends React.Component{
 
                 <Collapse
                     bordered={false}
-                    style={{background:'#55556D', margin:'10px'}}
+                    style={{background:'#1E1E2F', margin:'10px'}}
+                    theme="dark"
                 >
                     {this.state.trayectoria.map((value, index) =>
                     <Panel
-                        header={"Empresa: "+value.empresa}
+                        header={'Empresa: ' +value.empresa}
                         key={index}
                         extra={
-                            <div>
+                            <div >
                                 <Row>
                                     <Col span={12}>
                                         <EditarTrayectoria id={value.id}/>
@@ -94,12 +96,13 @@ export default class TrayectoriaCollapse extends React.Component{
                                 </Row>
                             </div>
                         }
+                        style={{color:'#ffffff'}}
                     >
-                        <List style={{background:'#55556D'}}>
-                            <List.Item><DesktopOutlined/> <b>Puesto de trabajo: </b> {value.puestoTrabajo}</List.Item>
-                            <List.Item><AuditOutlined/> <b>Responsabilidades:</b> {value.responsabilidades}</List.Item>
-                            <List.Item><CalendarOutlined/> <b>Periodo de trabajo:</b> {value.fechaInicio} a {value.fechaSalida}</List.Item>
-                            <List.Item><PhoneOutlined/> <b>Contacto:</b> {value.contacto}</List.Item>
+                        <List style={{background:'#1E1E2F'}}>
+                            <List.Item style={{color:'#ffffff'}}><DesktopOutlined/> <b>Puesto de trabajo: </b> {value.puestoTrabajo}</List.Item>
+                            <List.Item style={{color:'#ffffff'}}><AuditOutlined/> <b>Responsabilidades:</b> {value.responsabilidades}</List.Item>
+                            <List.Item style={{color:'#ffffff'}}><CalendarOutlined/> <b>Periodo de trabajo:</b> {value.fechaInicio} a {value.fechaSalida}</List.Item>
+                            <List.Item style={{color:'#ffffff'}}><PhoneOutlined/> <b>Contacto:</b> {value.contacto}</List.Item>
                         </List>
                     </Panel>
                     )}

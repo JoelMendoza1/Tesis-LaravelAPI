@@ -71,8 +71,8 @@ export default class IdiomasProgres extends React.Component{
                     {this.state.idiomas.map((value, index) =>
                         <Card
                             key={index}
-                            title={value.idioma}
-                            style={{background:'#55556D', margin:'10px'}}
+                            title={<h4 style={{color:'#ffffff'}}>{value.idioma}</h4>}
+                            style={{background:'#1E1E2F', margin:'10px'}}
                         >
                             <Row  align="middle">
                                 <Col span={12}>
@@ -81,12 +81,13 @@ export default class IdiomasProgres extends React.Component{
                                         percent={value.nivel}
                                         strokeColor={{
                                             '0%': '#108ee9',
-                                            '100%': '#1E1E2F',
+                                            '100%': '#55556D',
                                         }}
+                                        format={percent => <h4 style={{color:'#ffffff'}}>{value.nivel}%</h4>}
                                         width={90}
-                                        style={{margin:'20px'}}
+                                        style={{margin:'20px', collor: '#ffffff'}}
                                     />
-                                    <Text level={5}> Dominio</Text>
+                                    <Text level={5} style={{color:'#ffffff'}}> Dominio</Text>
                                 </Col>
                                 <Col span={12}>
                                     <Row justify="center">

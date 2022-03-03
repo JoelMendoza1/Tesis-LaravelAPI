@@ -4,20 +4,22 @@ import {API} from "../../services/API";
 import axios from "axios";
 import VerOferta from "../Ofertar/VerOferta";
 import EliminarPostulacion from "./EliminarPostulacion";
+import Search from "antd/es/input/Search";
 
 export default class TablaPostulacion extends React.Component{
     constructor(props) {
         super(props);
         this.state =({
             ofertas: [],
-            total:0
+            total:0,
+            ruta: props.ruta
         })
     }
     componentDidMount(){
         this.getUser()
     }
     async consultaAPI(id){
-        let url = API + 'users/'+id+'/postulacions';
+        let url = API + 'users/'+id+this.state.ruta;
         console.log(url)
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')
@@ -65,6 +67,22 @@ export default class TablaPostulacion extends React.Component{
         return(
             <div>
                 <h1 align='center'>MIS POSTULACIONES</h1>
+                <Search placeholder="Busca tú oferta o carrera"
+                        style={{
+                            width: 400,
+                            marginTop:'20px',
+                            marginRight:'auto',
+                            marginLeft:'auto',
+                            display:'block',
+                            paddingBottom:'10px'
+                        }}
+                        onChange={event=>{
+                            console.log(event.target.value)
+                            this.setState({
+                                buscarTerm:event.target.value
+                            })
+                        }}
+                />
                 <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff',borderCollapse: 'separate'}}>
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
@@ -77,7 +95,13 @@ export default class TablaPostulacion extends React.Component{
                     </tr>
                     </thead>
                     <tbody style={{}}>
-                    {this.state.ofertas.map((value, index) =>
+                    {this.state.ofertas.filter(((value) => {
+                        if(!this.state.buscarTerm){
+                            return value
+                        }else if (value.oferta_id.oferta.toLowerCase().includes(this.state.buscarTerm.toLowerCase())){
+                            return value
+                        }
+                    })).map((value, index) =>
                         <tr key={index}>
                             <td style={{fontSize:'15px', paddingLeft:'20px', paddingRight:'20px'}}>
                                 {value.oferta_id.oferta}

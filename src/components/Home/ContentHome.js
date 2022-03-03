@@ -1,6 +1,4 @@
 import React from "react";
-import {ReadOutlined } from '@ant-design/icons';
-import Navigation from "./Navigation";
 import Routes from "../../constants/routes";
 import {NavLink} from "react-router-dom";
 import {Button, Card, Typography} from "antd";

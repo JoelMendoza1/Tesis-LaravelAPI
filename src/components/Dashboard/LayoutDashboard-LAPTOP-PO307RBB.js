@@ -13,7 +13,7 @@ import { NavLink, Switch} from "react-router-dom";
 import Routes from "../../constants/routes";
 import PrivateRoute from "../../routers/PrivateRoute";
 import PerfilesPage from "../../pages/PerfilesPage";
-import SolicitudesPage from "../../pages/SolicitudesPage";
+import SolicitudesPasantePage from "../../pages/SolicitudesPasantePage";
 import OfertasPage from "../../pages/OfertasPage";
 import PostulacionPage from "../../pages/PostulacionPage";
 import OfertarPage from "../../pages/OfertarPage";
@@ -198,7 +198,7 @@ export default class LayoutDashboard extends React.Component {
                     >
                             <Switch>
                                 <PrivateRoute path={Routes.DASHBOARD} exact component={PerfilesPage}/>
-                                <PrivateRoute path={Routes.SOLICITUDES} exact component={SolicitudesPage}/>
+                                <PrivateRoute path={Routes.SOLICITUDES} exact component={SolicitudesPasantePage}/>
                                 <PrivateRoute path={Routes.OFERTAS} exact component={OfertasPage}/>
                                 <PrivateRoute path={Routes.POSTULACION} exact component={PostulacionPage}/>
                                 <PrivateRoute path={Routes.OFERTAR} exact component={OfertarPage}/>

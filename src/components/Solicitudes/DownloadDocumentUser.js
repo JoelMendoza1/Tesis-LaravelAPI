@@ -11,9 +11,10 @@ export default function DownloadDocumentUser(props){
         <div>
             <Button
                 shape="circle"
-                style={{backgroundColor:"primary"}}
+                style={{background:'transparent', borderColor:'transparent'}}
                 icon={<FileOutlined />}
                 title="Descargar documento"
+                target="_blank"
                 href={API+`users/${props.id}/document`}
                 onClick={onDownload}
             />

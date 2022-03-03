@@ -71,7 +71,7 @@ export default class ProyectosCollapse extends React.Component{
 
                 <Collapse
                     bordered={false}
-                    style={{background:'#55556D', margin:'10px'}}
+                    style={{background:'#1E1E2F', margin:'10px'}}
                 >
                     {this.state.proyectos.map((value, index) =>
                         <Panel
@@ -92,8 +92,8 @@ export default class ProyectosCollapse extends React.Component{
                             }
                         >
                             <List>
-                                <List.Item><FileTextOutlined/> <b>Descripción: </b>{value.description}</List.Item>
-                                <List.Item><ShareAltOutlined/> <b>Link: </b> <a href={value.link}>{value.link}</a></List.Item>
+                                <List.Item style={{color:'#ffffff'}}><FileTextOutlined/> <b>Descripción: </b>{value.description}</List.Item>
+                                <List.Item style={{color:'#ffffff'}}><ShareAltOutlined/> <b>Link: </b> <a href={value.link}>{value.link}</a></List.Item>
                             </List>
                         </Panel>
                     )}

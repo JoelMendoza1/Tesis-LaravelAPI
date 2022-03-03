@@ -13,9 +13,9 @@ export default function Instrucion() {
                 overflow:'auto',
                 paddingTop:'20px',
                 margin:'10px',
-                background: '#55556D'
+                background: '#1E1E2F'
             }}
-            title={<h1><BookOutlined/> Instrucciones Academicas</h1>}
+            title={<h1 style={{color:'#ffffff'}}><BookOutlined/> Instrucciones Academicas</h1>}
             extra={[
                 <CrearInstruccion/>,
             ]}

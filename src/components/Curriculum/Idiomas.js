@@ -13,9 +13,9 @@ export default function Idiomas() {
                 overflow:'auto',
                 paddingTop:'20px',
                 margin:'10px',
-                background: '#55556D'
+                background: '#1E1E2F'
             }}
-            title={<h1><TranslationOutlined/> Idiomas</h1>}
+            title={<h1 style={{color:'#ffffff'}}><TranslationOutlined/> Idiomas</h1>}
             extra={[
                 <CrearIdioma/>,
             ]}

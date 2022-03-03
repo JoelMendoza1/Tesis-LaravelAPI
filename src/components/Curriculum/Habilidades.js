@@ -13,9 +13,9 @@ export default function Habilidades() {
                 overflow:'auto',
                 paddingTop:'20px',
                 margin:'10px',
-                background: '#55556D'
+                background: '#1E1E2F'
             }}
-            title={<h1><ToolOutlined/> Habilidades</h1>}
+            title={<h1 style={{color:'#ffffff'}}><ToolOutlined/> Habilidades</h1>}
             extra={[
                 <CrearHabilidad/>,
             ]}

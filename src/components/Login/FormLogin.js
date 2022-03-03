@@ -1,12 +1,11 @@
 import React from "react";
-import {Button, Card, Checkbox, Form, Input, message, Typography} from "antd";
-import {NavLink, useHistory} from "react-router-dom";
+import {Button, Card, Checkbox, Form, Input, message} from "antd";
+import {useHistory} from "react-router-dom";
 import Routes from "../../constants/routes";
-import {KeyOutlined, MailOutlined, ReadOutlined} from "@ant-design/icons";
+import {KeyOutlined, MailOutlined} from "@ant-design/icons";
 import useAuth from "../../auth/useAuth";
 import {API} from "../../services/API";
 import axios from "axios";
-const { Title } = Typography;
 export default function FormLogin(){
     const  history = useHistory();
     const auth= useAuth();
@@ -43,7 +42,7 @@ export default function FormLogin(){
                 }
 
             }).catch(err=>{
-                console.log(err.response.data.message);
+                console.log(err.response.data.message)
 
                 //const errorList = err.response.data.message && <ErrorList errors={ err.response.data.message } />;
                 message.error( <>{ err.response.data.message }</> );
@@ -79,7 +78,7 @@ export default function FormLogin(){
                 }}
             >
                 <Form.Item
-                    label={<label><KeyOutlined style={{fontSize: '1px !important', }}/> Email</label>}
+                    label={<label><MailOutlined style={{fontSize: '1px !important', }}/> Email</label>}
                     name="username"
                     rules={[{ required: true, message: 'Por favor ingresa tu email!' }]}
                 >
@@ -87,7 +86,7 @@ export default function FormLogin(){
                 </Form.Item>
 
                 <Form.Item
-                    label={<label><MailOutlined style={{fontSize: '1px !important', }}/> Password</label>}
+                    label={<label><KeyOutlined style={{fontSize: '1px !important', }}/> Password</label>}
                     name="password"
                     rules={[{ required: true, message: 'Por favor ingresa tú contraseña!'}]}
                 >

@@ -72,14 +72,14 @@ export default class CapacitacionCard extends React.Component{
                 {this.state.capacitaciones.map((value, index) =>
                     <Card
                         key={index}
-                        title={value.nombreCapacitacion}
-                        style={{background:'#55556D', margin:'10px'}}
+                        title={<h4 style={{color:'#ffffff'}}>{value.nombreCapacitacion}</h4>}
+                        style={{background:'#1E1E2F', margin:'10px'}}
                     >
                         <Row  align="middle">
                             <Col span={12}>
-                                <Text level={5}> <BankOutlined/> <b>Institución capacitador: </b> {value.nombreInstitucionCapacitadora}</Text><br/>
-                                <Text level={5}> <CalendarOutlined/> <b>Inicio de la capacitación: </b> {value.fechaInicioCapacitacion}</Text><br/>
-                                <Text level={5}> <CalendarOutlined/> <b>Fin de la capacitación: </b> {value.fechaFinCapacitacion}</Text><br/>
+                                <Text level={5} style={{color:'#ffffff'}}> <BankOutlined/> <b>Institución capacitador: </b> {value.nombreInstitucionCapacitadora}</Text><br/>
+                                <Text level={5} style={{color:'#ffffff'}}> <CalendarOutlined/> <b>Inicio de la capacitación: </b> {value.fechaInicioCapacitacion}</Text><br/>
+                                <Text level={5} style={{color:'#ffffff'}}> <CalendarOutlined/> <b>Fin de la capacitación: </b> {value.fechaFinCapacitacion}</Text><br/>
                             </Col>
                             <Col span={12}>
                                 <Row justify="center">

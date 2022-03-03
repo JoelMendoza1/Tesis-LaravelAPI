@@ -3,7 +3,6 @@ import {API} from "../services/API";
 import axios from "axios";
 
 export const AuthContext =createContext();
-
 const AuthProvider=({children})=>{
     const [user, setUser]= useState(
         JSON.parse(localStorage.getItem("user")) || null
@@ -14,6 +13,7 @@ const AuthProvider=({children})=>{
     },[user])
 
     useEffect(()=>{
+
         const token =localStorage.getItem('user')
         const t= token.replace(/['"]+/g, '')
         if(!t){
@@ -29,19 +29,16 @@ const AuthProvider=({children})=>{
                     setUsuario(response.data)
                 }
             ).catch(e=>{
-                console.log("Token expirado", e.response.data)
+                console.log( e.response.data.message)
                 if(e.response.data.message==="token_not_refreshed"){
                     setUser(null)
-                    setUser(null)
-                    localStorage.clear()
+
                 }
                 if(e.response.data.message==="token_expired"){
-
-                }
-                if(e.response.data.message==="token_invalid"){
                     setUser(null)
                     localStorage.clear()
-
+                }
+                if(e.response.data.message==="token_invalid"){
                 }
             })
         }

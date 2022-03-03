@@ -94,7 +94,7 @@ export default class ModalEditEmpresa extends React.Component{
     render() {
         return(
             <div>
-                <Button  style={{backgroundColor:'#1E1E2F', color:'#ffffff', border:"#ffffff"}}
+                <Button  style={{backgroundColor:'#1E1E2F', color:'#ffffff', border:"#ffffff", marginTop:'20px', width:'20vh'}}
                          onClick={this.encenderModal}
                 >
                     <FormOutlined /> Editar Empresa

@@ -51,7 +51,7 @@ export default function EliminarEmpresa(props){
                 okText="Eliminar"
                 cancelText="Cancelar"
             >
-                <Button type="primary" danger title="Eliminar"><DeleteOutlined/>Eliminar</Button>
+                <Button type="primary" danger title="Eliminar" style={{ marginTop:'20px', width:'20vh'}}><DeleteOutlined/>Eliminar</Button>
             </Popconfirm>
         </div>
     )

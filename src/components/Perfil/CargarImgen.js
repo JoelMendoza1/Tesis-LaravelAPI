@@ -3,6 +3,7 @@ import {Button, message, Modal} from "antd";
 import axios from "axios";
 import {API} from "../../services/API";
 import { PictureOutlined, UploadOutlined} from "@ant-design/icons";
+import PerfilesPage from "../../pages/PerfilesPage";
 export  default class CargarImgen extends Component{
     state ={
         selectedFile: null,
@@ -30,11 +31,13 @@ export  default class CargarImgen extends Component{
         //console.log(this.state.selectedFile)
         axios.post(url,fd,config).then(res=>{
             console.log(res);
+            //this.apagarModal()
+            //PerfilesPage.getUser()
             window.location.reload();
 
         }).catch(e=>{
-            console.log(e.response.data)
-            message.error('Error '+e);
+            console.log(e.response)
+            message.error('Error imagen no cargada ');
         })
     }
     apagarModal=()=>{

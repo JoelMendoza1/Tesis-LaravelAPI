@@ -17,7 +17,7 @@ export default function Ofertar() {
         };
         axios.get(url, config).then(
             response=>{
-                message.success("Usuario encontrado! "+ response.data.id)
+                console.log('Usuario')
                 getEmpresa(response.data.id)
             }
         )
@@ -40,15 +40,13 @@ export default function Ofertar() {
         ).catch(
             e=>{
                 console.log(e.message)
-                message.error("Empresa no encontrada!")
             }
         )
     }
     useEffect(() => {
-
-    },);
+        getUser()
+    },[]);
     const onFinish = async (userData) => {
-        getUser();
         const idempresa = idEmpresa.idEmpresa
         let urlAPI = API + 'empresas/'+idempresa+'/ofertas';
         const token = localStorage.getItem('token')
@@ -108,14 +106,22 @@ export default function Ofertar() {
                         <Form.Item
                             label={<label> Oferta</label>}
                             name="oferta"
-                            rules={[{required: true, message: 'Por favor ingresale un titulo a tu oferta!'}]}
+                            rules={[{
+                                required: true,
+                                whitespace:true,
+                                message: 'Por favor ingresale un título a tu oferta!'
+                            },{
+                                pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: 'Ingresar solo letras!',
+                                type:'string',
+                            }]}
                         >
                             <Input/>
                         </Form.Item>
                         <Form.Item
                             label={<label> Descripción</label>}
                             name="descripcionOferta"
-                            rules={[{required: true, message: 'Por favor ingresa una descripción!'}]}
+                            rules={[{required: true, whitespace:true, message: 'Por favor ingresa una descripción!'}]}
                         >
                             <Input.TextArea/>
                         </Form.Item>
@@ -135,14 +141,18 @@ export default function Ofertar() {
                         <Form.Item
                             label={<label> Dirección</label>}
                             name="direcionOferta"
-                            rules={[{required: true, message: 'Por favor ingresa una dirección!'}]}
+                            rules={[{
+                                required: true,
+                                whitespace:true,
+                                message: 'Por favor ingresa una dirección!'
+                            }]}
                         >
                             <Input/>
                         </Form.Item>
                         <Form.Item
                             label={<label> Carrera</label>}
                             name="carreraOferta"
-                            rules={[{required: true, message: 'Por favor ingresa una carrera!'}]}
+                            rules={[{required: true,whitespace:true, message: 'Por favor ingresa una carrera!'}]}
                         >
                             <Select>
                                 <Option value="Tecnología Superior en Agua y Saneamiento Ambiental - TSASA">
