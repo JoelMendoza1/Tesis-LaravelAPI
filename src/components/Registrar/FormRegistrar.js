@@ -19,8 +19,9 @@ export default function FormRegistrar(){
         semestre: '',
         document: 'Cargar curriculum academico',
         registarURL: 'registrarPasante',
-        typeUser:'P'
+        typeUser:'P',
     });
+    const [blockSiguiente, setBlockSiguiente]= React.useState(false)
     const [selectedFile, setSelectedFile]=React.useState("");
     const [nameFile, setNameFile]=React.useState("");
     const [selectedImage, setSelectedImage]=React.useState("");
@@ -63,11 +64,12 @@ export default function FormRegistrar(){
                 message.success('Nueva capacitación  ingresada!!');
                 console.log(response.data)
                 setCurrent(current + 1);
+                setBlockSiguiente(true)
             }
         ).catch(e=>{
             console.log(e.response.data)
             console.log(e)
-            message.error(e.response.data);
+            message.error('Error en uno de los campos');
         })
 
     };
@@ -153,55 +155,118 @@ export default function FormRegistrar(){
                                 <Form.Item
                                     label='Nombres'
                                     name="name"
-                                    rules={[{required: true,whitespace:true, message: 'Ingrese sus nombres!!' }]}
+                                    rules={[{
+                                        required: true,
+                                        whitespace:true,
+                                        message: 'Por favor ingrese su nombre!'
+                                    },{
+                                        pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                        message: 'Ingresar solo letras!',
+                                        type:'string',
+                                    }]}
                                 >
                                     <Input />
                                 </Form.Item>
                                 <Form.Item
                                     label='Apellidos'
                                     name="lastname"
-                                    rules={[{required: true,whitespace:true, message: 'Ingrese sus apellidos!!' }]}
+                                    rules={[{
+                                        required: true,
+                                        whitespace:true,
+                                        message: 'Por favor ingrese su apellido!'
+                                    },{
+                                        pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                        message: 'Ingresar solo letras!',
+                                        type:'string',
+                                    }]}
                                 >
                                     <Input />
                                 </Form.Item>
                                 <Form.Item
-                                    label='Email'
+                                    label='Correo'
                                     name="email"
-                                    rules={[{required: true,whitespace:true, message: 'Ingrese su email!!' }]}
+                                    rules={[{
+                                        required: true,
+                                        whitespace:true,
+                                        message: 'Por favor ingrese un correo!' },
+                                        {
+                                            message: 'Ingresar un correo valido!',
+                                            type:'email',
+                                        }]}
                                 >
                                     <Input />
                                 </Form.Item>
                                 <Form.Item
-                                    label='Numero de identificacion'
+                                    label='Número de identificación'
                                     name="identificationCard"
-                                    rules={[{required: true,whitespace:true, message: 'Ingrese su cédula de identidad o RUC!!' }]}
+                                    rules={[{
+                                        required: true,
+                                        message: 'Cédula requerida!',
+                                    },{
+                                        whitespace:true,
+                                        message: 'Ha ingresado espacios en blanco!',
+                                    },{
+                                        max:10,
+                                        message: 'Maximo 10 caracteres!!',
+                                    },{
+                                        min:10,
+                                        message: 'Minimo 10 caracteres!!!',
+                                    },{
+                                        pattern: /^[0-9]+$/,
+                                        message: 'Ingresar solo numeros!',
+                                        type:'string',
+                                    }]}
                                 >
                                     <Input />
                                 </Form.Item>
                                 <Form.Item
-                                    label='Telefono'
+                                    label='Teléfono'
                                     name="telephoneNumber"
-                                    rules={[{required: true,whitespace:true, message: 'Ingrese su número de telefono!!' }]}
+                                    rules={[{
+                                        required: true,
+                                        message: 'Télefono requerido!',
+                                    },{
+                                        whitespace:true,
+                                        message: 'Ha ingresado espacios en blanco!',
+                                    },{
+                                        max:10,
+                                        message: 'Maximo 10 caracteres!!',
+                                    },{
+                                        min:10,
+                                        message: 'Minimo 10 caracteres!!!',
+                                    },{
+                                        pattern: /^[0-9]+$/,
+                                        message: 'Ingresar solo numeros!',
+                                        type:'string',
+                                    }]}
                                 >
                                     <Input />
                                 </Form.Item>
                                 <Form.Item
                                     label='Dirección'
                                     name="address"
-                                    rules={[{required: true,whitespace:true, message: 'Ingrese su dirección!!' }]}
+                                    rules={[{ required: true,whitespace:true, message: 'Por favor ingrese su dirección!' }]}
                                 >
                                     <Input />
                                 </Form.Item>
                                 <Form.Item
                                     label='Fecha de Nacimiento'
                                     name="dateOfBirth"
+                                    rules={[{ type: 'object', required: true,whitespace:true, message: 'Por favor ingrese su fecha de nacimiento!' }]}
                                 >
                                     <DatePicker format={'DD/MM/YYYY'}/>
                                 </Form.Item>
                                 <Form.Item
                                     label='Carrera'
                                     name="career"
-                                    rules={[{whitespace:true, message: 'Ingrese su carrera profesional!!' }]}
+                                    rules={[{
+                                        whitespace:true,
+                                        message: 'Por favor ingrese la carrera!'
+                                    },{
+                                        pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                        message: 'Ingresar solo letras!',
+                                        type:'string',
+                                    }]}
                                     style={{display:empresaOrPasante.carrera}}
                                 >
                                     <Input />
@@ -209,22 +274,25 @@ export default function FormRegistrar(){
                                 <Form.Item
                                     label='Institución'
                                     name="institution"
-                                    rules={[{required: true,whitespace:true, message: empresaOrPasante.institucionMensaje }]}
-                                >
-                                    <Input />
-                                </Form.Item>
-                                <Form.Item
-                                    label='Semestre'
-                                    name="semester"
-                                    rules={[{whitespace:true, message: 'Ingresa tú institución de tú universidad o empresa!!' }]}
-                                    style={{display:empresaOrPasante.semestre}}
+                                    rules={[{
+                                        required: true,
+                                        whitespace:true,
+                                        message: empresaOrPasante.institucionMensaje
+                                    },{
+                                        pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                        message: 'Ingresar solo letras!',
+                                        type:'string',
+                                    }]}
                                 >
                                     <Input />
                                 </Form.Item>
                                 <Form.Item
                                     label="Contraseña"
                                     name="password"
-                                    rules={[{ required: true, message: 'Please input your password!' }]}
+                                    rules={[{ required: true, message: 'Please input your password!' },{
+                                        min:6,
+                                        message: 'Minimo 6 caracteres!!!',
+                                    }]}
                                 >
                                     <Input.Password />
                                 </Form.Item>
@@ -238,7 +306,10 @@ export default function FormRegistrar(){
                                             }
                                             return Promise.reject(new Error('Las dos contraseñas no coiciden!'));
                                         },
-                                    })]}
+                                    }),{
+                                        min:6,
+                                        message: 'Minimo 6 caracteres!!!',
+                                    }]}
                                 >
                                     <Input.Password />
                                 </Form.Item>
@@ -268,8 +339,8 @@ export default function FormRegistrar(){
                             }
                             <input
                                 type='file'
-                                onChange={imageSelectedHandler}
-                                //accept="image/*"
+                                onChange={fileSelectedHandler}
+                                accept=".pdf"
                             />
                         </Card>
                         <Card style={{height:'160px', margin:'auto',alignContent: 'center', padding:'20px', marginTop:'30px'}}
@@ -282,7 +353,7 @@ export default function FormRegistrar(){
                             }
                             <input
                                 type='file'
-                                onChange={fileSelectedHandler}
+                                onChange={imageSelectedHandler}
                                 accept="image/*"
                             />
                         </Card>
@@ -305,14 +376,14 @@ export default function FormRegistrar(){
             </div>
             <div className="steps-action">
                 {current < 3 - 1 && current >0 &&(
-                    <Button type="primary" onClick={()=>next()} style={{display:nextButton}}>
-                        Next
+                    <Button type="primary" onClick={()=>next()} style={{display:nextButton}} disabled={blockSiguiente}>
+                        Siguiente
                     </Button>
                 )}
 
                 {current > 0 && (
                     <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-                        Previous
+                        Volver
                     </Button>
                 )}
             </div>

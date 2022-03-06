@@ -12,7 +12,7 @@ export default function OfertarPage(){
                 className="site-page-header"
                 onBack={() => window.history.back()}
                 title={<Title level={4}><FundOutlined /> Ofertar</Title>}
-                subTitle="En este modulo permitirá crear, visualizar, editar, borrar, ocultar, publicar las ofertas de una Empresa"
+                subTitle="En este modulo permite gestionar las ofertas"
                 style={{background:"#ffffff"}}
             />
             <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>

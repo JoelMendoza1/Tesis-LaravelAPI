@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {API} from "../services/API";
 import axios from "axios";
-import {Row, Col, Avatar, Card, PageHeader, Typography, List, Spin} from 'antd';
+import {Row, Col, Avatar, Card, PageHeader, Typography, List, Spin, Alert} from 'antd';
 import { UserOutlined} from "@ant-design/icons";
 import InfiniteScroll from "react-infinite-scroller";
 import ModalEditUser from "../components/Perfil/ModalEditUser";
@@ -65,7 +65,7 @@ export default class PerfilesPage extends Component{
                     {this.state.usuarios.map((value, index) => (
                         <Card key={index} style={{height:'80vh', paddingBottom:'0px'}}>
                             <InfiniteScroll>
-                                <Card style={{height:'18vh',paddingTop:'20px', background:'#55556D', paddingBottom:'0px'}} >
+                                <Card style={{height:'17vh',paddingTop:'20px', background:'#55556D', paddingBottom:'0px'}} >
                                     <Row justify="start" align="top">
                                         <Col span={8}>
                                             <Avatar size={{ xs: 72, sm: 96, md: 120, lg: 192, xl: 240, xxl: 300 }}
@@ -93,9 +93,29 @@ export default class PerfilesPage extends Component{
                                 </Card>
                                 <Row key={index} justify="end">
                                     <Col span={17}>
+                                        <div style={{paddingBottom:'20px'}}>
+                                            {
+                                                (value.request===null) ?
+                                                    <Alert
+                                                        message="Pendiente"
+                                                        description={<>Razon: {value.descriptionRequest}</>}
+                                                        type="warning"
+                                                        showIcon
+                                                    />
+                                                    :(value.request===0) ? <Alert
+                                                        message="Rechazado"
+                                                        description={<>Razon: {value.descriptionRequest}</>}
+                                                        type="error"
+                                                        showIcon
+                                                    />:
+                                                    <></>
+
+
+                                            }
+                                        </div>
                                         <List>
                                             <List.Item>
-                                                <Title level={5}><b>Email:</b> {value.email}</Title>
+                                                <Title level={5}><b>Correo:</b> {value.email}</Title>
                                             </List.Item>
                                             <List.Item>
                                                 <Title level={5}><b>Cédula:</b> {value.identificationCard}</Title>

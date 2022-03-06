@@ -118,21 +118,33 @@ export default class CrearTrayectoria extends React.Component{
                             <Form.Item
                                 label={<><BankOutlined/> Empresa</>}
                                 name="empresa"
-                                rules={[{required: true,whitespace:true, message: 'Por favor ingrese una empresa' }]}
+                                rules={[{required: true,whitespace:true, message: 'Por favor ingrese una empresa' },{
+                                    pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                    message: 'Ingresar solo letras!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input />
                             </Form.Item>
                             <Form.Item
                                 label={<><DesktopOutlined/> Puesto de trabajo</>}
                                 name="puestoTrabajo"
-                                rules={[{ required: true,whitespace:true, message: 'Por favor ingrese el puesto de trabajo' }]}
+                                rules={[{ required: true,whitespace:true, message: 'Por favor ingrese el puesto de trabajo' },{
+                                    pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                    message: 'Ingresar solo letras!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input />
                             </Form.Item>
                             <Form.Item
                                 label={<><AuditOutlined/> Responsabilidades</>}
                                 name="responsabilidades"
-                                rules={[{ required: true,whitespace:true, message: 'Ingrese las responsabilidades ejercidas!' }]}
+                                rules={[{ required: true,whitespace:true, message: 'Ingrese las responsabilidades ejercidas!' },{
+                                    pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                    message: 'Ingresar solo letras!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input />
                             </Form.Item>
@@ -146,7 +158,23 @@ export default class CrearTrayectoria extends React.Component{
                             <Form.Item
                                 label={<><PhoneOutlined/> Contacto</>}
                                 name="contacto"
-                                rules={[{ required: true,whitespace:true, message: 'Ingrese el contacto telefonico de la empresa' }]}
+                                rules={[{
+                                    required: true,
+                                    message: 'Télefono requerido!',
+                                },{
+                                    whitespace:true,
+                                    message: 'Ha ingresado espacios en blanco!',
+                                },{
+                                    max:10,
+                                    message: 'Maximo 10 caracteres!!',
+                                },{
+                                    min:10,
+                                    message: 'Minimo 10 caracteres!!!',
+                                },{
+                                    pattern: /^[0-9]+$/,
+                                    message: 'Ingresar solo numeros!',
+                                    type:'string',
+                                }]}
                             >
                                 <Input />
                             </Form.Item>

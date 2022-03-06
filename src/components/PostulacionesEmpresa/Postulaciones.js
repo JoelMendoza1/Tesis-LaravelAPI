@@ -169,10 +169,10 @@ export default class Postulaciones extends React.Component{
                                     >
                                         <Descriptions.Item>{value.descripcionOferta}</Descriptions.Item>
                                     </Descriptions>
-                                    <h1 style={{color:'#ffffff'}}><ClockCircleOutlined /> Horario: {value.horario}</h1>
-                                    <h1 style={{color:'#ffffff'}}><TeamOutlined /> Pasantes disponibles: {value.numberoPostulantes}</h1>
-                                    <h1 style={{color:'#ffffff'}}><EnvironmentOutlined /> Dirección: {value.direcionOferta}</h1>
-                                    <h1 style={{color:'#ffffff'}}><BookOutlined /> Carrera: {value.carreraOferta}</h1>
+                                    <h2 style={{color:'#ffffff'}}><ClockCircleOutlined /> Horario laboral: {value.horario}</h2>
+                                    <h2 style={{color:'#ffffff'}}><TeamOutlined /> Pasantes disponibles: {value.numberoPostulantes}</h2>
+                                    <h2 style={{color:'#ffffff'}}><EnvironmentOutlined /> Dirección: {value.direcionOferta}</h2>
+                                    <h2 style={{color:'#ffffff'}}><BookOutlined /> Carrera: {value.carreraOferta}</h2>
                                 </Card>
                             </Col>
                             <Col span={12}>

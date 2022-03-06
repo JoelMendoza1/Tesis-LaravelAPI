@@ -143,10 +143,10 @@ export default class VerOferta extends React.Component{
                                 >
                                     <Descriptions.Item>{value.descripcionOferta}</Descriptions.Item>
                                 </Descriptions>
-                                <h1 style={{color:'#ffffff'}}><ClockCircleOutlined /> Horario: {value.horario}</h1>
-                                <h1 style={{color:'#ffffff'}}><TeamOutlined /> Pasantes disponibles: {value.numberoPostulantes}</h1>
-                                <h1 style={{color:'#ffffff'}}><EnvironmentOutlined /> Dirección: {value.direcionOferta}</h1>
-                                <h1 style={{color:'#ffffff'}}><BookOutlined /> Carrera: {value.carreraOferta}</h1>
+                                <h3 style={{color:'#ffffff'}}><ClockCircleOutlined /> Horario: {value.horario}</h3>
+                                <h3 style={{color:'#ffffff'}}><TeamOutlined /> Pasantes disponibles: {value.numberoPostulantes}</h3>
+                                <h3 style={{color:'#ffffff'}}><EnvironmentOutlined /> Dirección: {value.direcionOferta}</h3>
+                                <h3 style={{color:'#ffffff'}}><BookOutlined /> Carrera: {value.carreraOferta}</h3>
                             </Card>
                         </div>
                         )}

@@ -115,14 +115,31 @@ export default class ModalCrearEmpresa extends React.Component {
                         <Form.Item
                             label="Razón social"
                             name="razonSocial"
-                            rules={[{required: true, message: 'Por favor ingrese su la Razón Socail de tú empresa!'}]}
+                            rules={[{required: true,whitespace:true, message: 'Por favor ingrese su la Razón Socail de tú empresa!'},{
+                                pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: 'Ingresar solo letras!',
+                                type:'string',
+                            }]}
                         >
                             <Input placeholder="Razón Social"/>
                         </Form.Item>
                         <Form.Item
                             label="RUC"
                             name="ruc"
-                            rules={[{required: true, message: 'Por favor ingrese el RUC de su empresa!'}]}
+                            rules={[{required: true, message: 'Por favor ingrese el RUC de su empresa!'},{
+                                whitespace:true,
+                                message: 'Ha ingresado espacios en blanco!',
+                            },{
+                                max:10,
+                                message: 'Maximo 10 caracteres!!',
+                            },{
+                                min:10,
+                                message: 'Minimo 10 caracteres!!!',
+                            },{
+                                pattern: /^[0-9]+$/,
+                                message: 'Ingresar solo numeros!',
+                                type:'string',
+                            }]}
                         >
                             <Input placeholder="RUC"/>
                         </Form.Item>
@@ -139,14 +156,34 @@ export default class ModalCrearEmpresa extends React.Component {
                         <Form.Item
                             label="Télefono"
                             name="telefono"
-                            rules={[{required: true, message: 'Por favor ingrese su número de télefono!'}]}
+                            rules={[{required: true, message: 'Por favor ingrese su número de télefono!'},{
+                                whitespace:true,
+                                message: 'Ha ingresado espacios en blanco!',
+                            },{
+                                max:10,
+                                message: 'Maximo 10 caracteres!!',
+                            },{
+                                min:10,
+                                message: 'Minimo 10 caracteres!!!',
+                            },{
+                                pattern: /^[0-9]+$/,
+                                message: 'Ingresar solo numeros!',
+                                type:'string',
+                            }]}
                         >
                             <Input placeholder="0900000000"/>
                         </Form.Item>
                         <Form.Item
                             label="Email"
                             name="email"
-                            rules={[{required: true, message: 'Por favor ingrese un Email!'}]}
+                            rules={[{
+                                required: true,
+                                whitespace:true,
+                                message: 'Por favor ingrese un Email!' },
+                                {
+                                    message: 'Ingresar un email valido!',
+                                    type:'email',
+                                }]}
                         >
                             <AutoComplete
                                 style={{width: '70%'}}

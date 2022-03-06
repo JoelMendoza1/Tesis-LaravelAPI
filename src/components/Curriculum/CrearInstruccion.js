@@ -118,7 +118,7 @@ export default class CrearInstruccion extends React.Component{
                     onClick={this.encenderModal}
                 />
                 <Modal
-                    title="Crear Habilidad "
+                    title="Crear Intrucción "
                     visible={this.state.modal}
                     width={600}
                     footer={[
@@ -137,12 +137,16 @@ export default class CrearInstruccion extends React.Component{
                             remember: true
                         }}
                     >
-                        <label><UploadOutlined/> Carga tu certificado:</label><input type='file' onChange={this.fileSelectedHandler}/>
+                        <label><UploadOutlined/> Carga tu certificado:</label><input type='file' onChange={this.fileSelectedHandler} accept=".pdf"/>
                         <br/>
                         <Form.Item
                             label={<><BookOutlined/> Instruccion academica</>}
                             name="instruccion"
-                            rules={[{required: true,whitespace:true, message: 'Por favor ingrese una instrucción' }]}
+                            rules={[{required: true,whitespace:true, message: 'Por favor ingrese una instrucción' },{
+                                pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: 'Ingresar solo letras!',
+                                type:'string',
+                            }]}
                         >
                             <Input />
                         </Form.Item>
@@ -164,7 +168,11 @@ export default class CrearInstruccion extends React.Component{
                         <Form.Item
                             label={<><BankOutlined/> Institución</>}
                             name="institucion"
-                            rules={[{whitespace:true, message: 'Ingrese la institucion' }]}
+                            rules={[{required:true,whitespace:true, message: 'Ingrese la institucion' },{
+                                pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: 'Ingresar solo letras!',
+                                type:'string',
+                            }]}
                         >
                             <Input />
                         </Form.Item>

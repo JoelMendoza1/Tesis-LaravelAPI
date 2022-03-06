@@ -144,7 +144,7 @@ export default class ModalGetUser extends React.Component {
                                                     </Row>
                                                     <Row key={index}>
                                                         <Col span={12}>
-                                                            <h3><b>Número de cedula: </b></h3>
+                                                            <h3><b>Número de cédula: </b></h3>
                                                         </Col>
                                                         <Col span={12}>
                                                             <h3>{value.identificationCard}</h3>
@@ -188,7 +188,7 @@ export default class ModalGetUser extends React.Component {
                                         <div>
                                             {
                                                 (value.typeUser === 'P') ?
-                                                    <Card title='Curriculum' style={{marginTop: '20px'}}>
+                                                    <Card title='Currículum' style={{marginTop: '20px'}}>
                                                         <InfiniteScroll>
                                                             <Card
                                                                 style={{

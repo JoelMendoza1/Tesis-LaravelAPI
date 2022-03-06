@@ -91,50 +91,35 @@ export  default class ModalEditarDocumento extends Component{
                         : <></>
                 }
                 <Modal
-                    title="Editar imagen de perfil "
+                    title="Editar documento "
                     visible={this.state.modal}
                     footer={[
                         <Button key="back" style={{background:'#1E1E2F', color:'#ffffff'}} onClick={this.apagarModal}>
                             Cancelar
                         </Button>
                     ]}
+                    width={700}
                     onCancel={this.apagarModal}
                 >
-                    <div style={{paddingBottom:'20px'}}>
-                        {
-                            (this.state.request===null) ?
-                                <Alert
-                                    message="Pendiente"
-                                    description={<>Razon: {this.state.description}</>}
-                                    type="warning"
-                                    showIcon
-                                />
-                                : <Alert
-                                    message="Rechazado"
-                                    description={<>Razon: {this.state.description}</>}
-                                    type="error"
-                                    showIcon
-                                />
 
-
-                        }
-                    </div>
                     <input
                         type='file'
                         onChange={this.fileSelectedHandler}
                         ref={fileInput=>this.fileInput=fileInput}
                         accept=".pdf"
+                        style={{width:'300px'}}
                     />
-
+                    <br/>
+                    <br/>
                     <Button
                         onClick={this.fileUploadHandler}
                         size='default'
                         style={{background:'#1E1E2F', color:"#ffffff"}}
                     >
-                        <UploadOutlined/> Subir foto
+                        <UploadOutlined/> Subir documento
                     </Button>
                     <br/>
-                    <label>Cargar un limite de 2MB</label>
+                    <label>Cargar un límite de 2MB</label>
                 </Modal>
             </div>
         );

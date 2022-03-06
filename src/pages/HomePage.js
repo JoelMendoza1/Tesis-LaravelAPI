@@ -21,7 +21,7 @@ export default function HomePage(){
                 <Footer style={{ textAlign: 'center', backgroundColor:"#292F36"}}>
                     <FooterComponent/>
                     <div style={{marginTop:'50px', color:"#ffffff"}}>
-                        Aplication ©2021 Created by Joel Mendoza
+                        Platafoma Virtual ©2022 Creada por Joel Mendoza y Gabriela García
                     </div>
                 </Footer>
             </Layout>

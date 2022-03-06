@@ -131,7 +131,7 @@ export default class EditarOfertas extends React.Component{
                             <Input.TextArea defaultValue={value.descripcionOferta}/>
                         </Form.Item>
                         <Form.Item
-                            label={<label><HistoryOutlined /> Horario</label>}
+                            label={<label><HistoryOutlined /> Horario laboral</label>}
                             name="horario"
                             rules={[{required: true, message: 'Por favor ingresa el horario de trabajo que solicitas!'}]}
                         >

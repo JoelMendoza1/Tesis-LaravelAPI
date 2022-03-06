@@ -98,7 +98,7 @@ export default class TableSolicitudes extends React.Component{
                         {aciones.map(ac =>
                         <Row>
                             <Col span={3}>
-                                <DownloadDocumentUser id={ac.id}/>
+                                <DownloadDocumentUser id={ac.id} document={ac.document}/>
                             </Col>
                             <Col span={3}>
                                 <ModalGetUser id={ac.id}/>
@@ -140,7 +140,7 @@ export default class TableSolicitudes extends React.Component{
                 key: index,
                 user: [{name:value.name,lastname:value.lastname,image:value.image.substring(6)}],
                 estado: value.request,
-                acciones: [{id:value.id,request:value.request}]
+                acciones: [{id:value.id,request:value.request, document:value.document}]
 
             })
         )

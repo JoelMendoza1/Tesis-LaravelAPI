@@ -111,6 +111,7 @@ export default class ModalEditUser extends React.Component{
                                 label="Nombre"
                                 name="nombre"
                                 rules={[{
+                                    required: true,
                                     whitespace:true,
                                     message: 'Por favor ingrese su nombre!'
                                 },{
@@ -137,7 +138,7 @@ export default class ModalEditUser extends React.Component{
                                 <Input placeholder="Apellido" />
                             </Form.Item>
                             <Form.Item
-                                label="Email"
+                                label="Correo"
                                 name="email"
                                 rules={[{
                                     required: true,

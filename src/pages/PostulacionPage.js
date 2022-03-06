@@ -10,8 +10,8 @@ export default function PostulacionPage(){
             <PageHeader
                 className="site-page-header"
                 onBack={() => window.history.back()}
-                title={<Title level={4}><NotificationOutlined /> Postulaciones P</Title>}
-                subTitle="En este modulo permitirá ver mis postulaciones, editarlas y eliminarlas"
+                title={<Title level={4}><NotificationOutlined /> Postulaciones</Title>}
+                subTitle="En este modulo permite gestionar mis postulaciones"
                 style={{background:"#ffffff"}}
             />
             <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>

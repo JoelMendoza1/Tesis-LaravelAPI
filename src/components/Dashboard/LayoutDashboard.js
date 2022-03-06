@@ -152,7 +152,7 @@ export default class LayoutDashboard extends React.Component {
                                 Postulaciones
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.CURRICULUM} icon={<IdcardOutlined/>} style={{display:this.state.pasante}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.CURRICULUM} icon={<IdcardOutlined/>} style={{display:this.state.pasante}} >
                             <NavLink to={Routes.CURRICULUM}>
                                 Curriculum
                             </NavLink>
@@ -167,7 +167,7 @@ export default class LayoutDashboard extends React.Component {
                                 Postulaciones
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={Routes.EMPRESA} icon={<ShopOutlined />} style={{display:this.state.empresa}} disabled={this.state.request}>
+                        <Menu.Item key={Routes.EMPRESA} icon={<ShopOutlined />} style={{display:this.state.empresa}} >
                             <NavLink to={Routes.EMPRESA}>
                                 Mi Empresa
                             </NavLink>

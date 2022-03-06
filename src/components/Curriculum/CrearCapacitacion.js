@@ -133,19 +133,27 @@ export default class CrearCapacitacion extends React.Component{
                             remember: true
                         }}
                     >
-                        <label><UploadOutlined/> Carga tu certificado:</label><input type='file' onChange={this.fileSelectedHandler}/>
+                        <label><UploadOutlined/> Carga tu certificado:</label><input type='file' onChange={this.fileSelectedHandler} accept=".pdf"/>
                         <br/>
                         <Form.Item
                             label={<><ProjectOutlined/> Capacitacion</>}
                             name="capacitacion"
-                            rules={[{required: true,whitespace:true, message: 'Por favor ingrese el nombre de la capacitación!!' }]}
+                            rules={[{required: true,whitespace:true, message: 'Por favor ingrese el nombre de la capacitación!!' },{
+                                pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: 'Ingresar solo letras!',
+                                type:'string',
+                            }]}
                         >
                             <Input />
                         </Form.Item>
                         <Form.Item
                             label={<><BankOutlined/> Institución capacitadora</>}
                             name="institucion"
-                            rules={[{required: true,whitespace:true, message: 'Por favor ingrese la institución capacitadora!!' }]}
+                            rules={[{required: true,whitespace:true, message: 'Por favor ingrese la institución capacitadora!!' },{
+                                pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+                                message: 'Ingresar solo letras!',
+                                type:'string',
+                            }]}
                         >
                             <Input />
                         </Form.Item>

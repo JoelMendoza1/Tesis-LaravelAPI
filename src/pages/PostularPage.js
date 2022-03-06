@@ -10,8 +10,8 @@ export default function PostularPage(){
             <PageHeader
                 className="site-page-header"
                 onBack={() => window.history.back()}
-                title={<Title level={4}><NotificationOutlined /> Postulaciones E</Title>}
-                subTitle="En este modulo permitirá visualizar mis ofertas y ver las postulaciones de mi oferta poder aceptarlas o rechazarlas"
+                title={<Title level={4}><NotificationOutlined /> Postulaciones</Title>}
+                subTitle="En este módulo permite gestionar las postulaciones de mis ofertas"
                 style={{background:"#ffffff"}}
             />
             <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>

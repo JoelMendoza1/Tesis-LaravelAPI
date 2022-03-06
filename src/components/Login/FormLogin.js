@@ -20,15 +20,10 @@ export default function FormLogin(){
     const onFinish = async(userData) => {
         try{
             let urlAPI = API +'inicioSesion';
-            const datos = (  {
-                email: userData.username,
-                password: userData.password
-            } );
             axios.post(urlAPI,{
                 email: userData.username,
                 password: userData.password
             }).then(response=>{
-
                 console.log(response.status);
                 if(response.statusText==="OK"){
                     localStorage.setItem("token", JSON.stringify(response.data.token))
@@ -38,23 +33,17 @@ export default function FormLogin(){
                     console.log(response.data.result);
                     console.log("Hola");
                     auth.login(null)
-
                 }
-
             }).catch(err=>{
                 console.log(err.response.data.message)
-
                 //const errorList = err.response.data.message && <ErrorList errors={ err.response.data.message } />;
                 message.error( <>{ err.response.data.message }</> );
             })
-            console.log(datos);
-
         }catch(e){
             console.error( 'No se pudo iniciar sesión', e.message );
-
         }
-
     };
+
     return(
         <Card
 
@@ -78,7 +67,7 @@ export default function FormLogin(){
                 }}
             >
                 <Form.Item
-                    label={<label><MailOutlined style={{fontSize: '1px !important', }}/> Email</label>}
+                    label={<label><MailOutlined style={{fontSize: '1px !important', }}/> Correo</label>}
                     name="username"
                     rules={[{ required: true, message: 'Por favor ingresa tu email!' }]}
                 >
@@ -86,7 +75,7 @@ export default function FormLogin(){
                 </Form.Item>
 
                 <Form.Item
-                    label={<label><KeyOutlined style={{fontSize: '1px !important', }}/> Password</label>}
+                    label={<label><KeyOutlined style={{fontSize: '1px !important', }}/> Contraseña</label>}
                     name="password"
                     rules={[{ required: true, message: 'Por favor ingresa tú contraseña!'}]}
                 >

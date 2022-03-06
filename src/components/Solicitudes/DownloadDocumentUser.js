@@ -15,7 +15,8 @@ export default function DownloadDocumentUser(props){
                 icon={<FileOutlined />}
                 title="Descargar documento"
                 target="_blank"
-                href={API+`users/${props.id}/document`}
+                href={"http://localhost:8000/storage"+props.document.substring(6)}
+                //href={API+`users/${props.id}/document`}
                 onClick={onDownload}
             />
         </div>

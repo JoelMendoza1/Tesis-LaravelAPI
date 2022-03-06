@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {Alert, Button, message, Modal} from "antd";
+import {Button, message} from "antd";
 import axios from "axios";
 import {API} from "../../services/API";
-import {UploadOutlined} from "@ant-design/icons";
 export  default class EnviarSolicitud extends Component{
     constructor(props) {
         super(props);

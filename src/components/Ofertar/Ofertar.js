@@ -126,7 +126,7 @@ export default function Ofertar() {
                             <Input.TextArea/>
                         </Form.Item>
                         <Form.Item
-                            label={<label><HistoryOutlined /> Horario</label>}
+                            label={<label><HistoryOutlined /> Horario laboral</label>}
                             name="horario"
                         >
                             <TimePicker.RangePicker bordered={false} format='HH:mm' />

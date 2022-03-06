@@ -13,9 +13,6 @@ export default function About(){
         <div className='about-carrusel'>
             <div>
                 <Title level={3} style={{color: '#ffffff'}}> ¿CÓMO FUNCIONA SI SOY PASANTE?</Title>
-                        <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px', marginBottom:'40px'}}>
-                            <NavLink to={ Routes.REGISTER } className='active' exact>VER OFERTAS COMO INVITADO</NavLink>
-                        </Button>
                         <Carousel autoplay>
                             <div className="carrusel-n1">
                                 <div className="carrusel-contenido">

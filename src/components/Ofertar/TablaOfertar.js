@@ -109,7 +109,7 @@ export default class TablaOfertar extends React.Component{
                     <tr>
                         <th style={{width:'150px'}}>Oferta</th>
                         <th style={{width:'200px'}}>Descripción</th>
-                        <th style={{width:'150px'}}>Horario</th>
+                        <th style={{width:'150px'}}>Horario laboral</th>
                         <th style={{width:'70px'}}>Número de postulantes</th>
                         <th style={{width:'200px'}}>Dirección</th>
                         <th style={{width:'200px'}}>Carrera</th>

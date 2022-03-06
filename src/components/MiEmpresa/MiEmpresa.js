@@ -56,6 +56,9 @@ export default class MiEmpresa extends React.Component{
                 message.error("Empresa no encontrada!")
             }
         )
+        this.setState({
+            loading:false
+        })
     }
     componentDidMount() {
         this.getUser();
@@ -67,7 +70,7 @@ export default class MiEmpresa extends React.Component{
                     className="site-page-header"
                     onBack={() => window.history.back()}
                     title={<Title level={4}><ShopOutlined /> My Empresa</Title>}
-                    subTitle="En este modulo permitirá ver el perfil de la empresa y editarla"
+                    subTitle="En este módulo permite gestionar la información de perfil de la empresa"
                     style={{background:"#ffffff"}}
                 />
                 <Card style={{height:'80vh', overflow:'auto', paddingTop:'60px'}}>

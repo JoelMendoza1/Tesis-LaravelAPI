@@ -24,8 +24,9 @@ export default class CardOfertas extends React.Component{
     componentDidMount() {
         this.getOferta()
         this.handleChange(this.state.current)
+        this.getUser()
     }
-    /*getUser=()=>{
+    getUser=()=>{
         let url = API + 'usuarios';
         const token =localStorage.getItem('token')
         const t= token.replace(/['"]+/g, '')
@@ -39,7 +40,7 @@ export default class CardOfertas extends React.Component{
                 })
             }
         )
-    }*/
+    }
     getOferta () {
         let url = API + 'ofertas';
         console.log(url)
