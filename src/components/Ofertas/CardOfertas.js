@@ -4,6 +4,7 @@ import {API} from "../../services/API";
 import axios from "axios";
 import BotonPostular from "./BotonPostular";
 import VerOferta from "../Ofertar/VerOferta";
+import {URLH} from "../../services/URLH";
 const { Search } = Input;
 const { Title } = Typography;
 const pageSize = 9;
@@ -132,7 +133,7 @@ export default class CardOfertas extends React.Component{
                                                         size={30}
                                                         style={{
                                                             color: '#ffffff',
-                                                            backgroundImage: `url('http://localhost:8000/storage${value.empresa_id.imagen.substring(6)}')`,
+                                                            backgroundImage: `url('${URLH}storage${value.empresa_id.imagen.substring(6)}')`,
                                                             backgroundSize: '100% 100%',
                                                             marginRight:'20px',
                                                         }}

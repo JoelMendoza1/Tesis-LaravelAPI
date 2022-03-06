@@ -7,6 +7,7 @@ import axios from "axios";
 import AprobarUser from "./AprobarUser";
 import DownloadDocumentUser from "./DownloadDocumentUser";
 import Search from "antd/es/input/Search";
+import {URLH} from "../../services/URLH";
 export default class TableSolicitudes extends React.Component{
     constructor(props) {
         super(props);
@@ -62,7 +63,7 @@ export default class TableSolicitudes extends React.Component{
                                 <Avatar
                                     style={{
                                         color: '#000000',
-                                        backgroundImage: `url('http://localhost:8000/storage${ava.image}')`,
+                                        backgroundImage: `url('${URLH}/storage${ava.image}')`,
                                         backgroundSize: '100% 100%',
                                         marginRight:'10px'
                                     }}>

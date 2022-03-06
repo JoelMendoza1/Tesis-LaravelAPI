@@ -3,6 +3,7 @@ import {Button, Card, Col, message, Row, Typography} from "antd";
 import {BankOutlined, CrownOutlined, FileTextOutlined, StockOutlined} from "@ant-design/icons";
 import {API} from "../../services/API";
 import axios from "axios";
+import {URLH} from "../../services/URLH";
 const {Text}= Typography;
 export default class GetInstruccion extends React.Component{
     constructor(props) {
@@ -63,7 +64,7 @@ export default class GetInstruccion extends React.Component{
                                 shape="circle"
                                 title='Descargar certificado'
                                 //href={API+`instrucciones/${value.id}/document`}
-                                href={"http://localhost:8000/storage"+value.document.substring(6)}
+                                href={URLH+"storage"+value.document.substring(6)}
                             />
                         ]}
                     >

@@ -3,6 +3,7 @@ import {BookOutlined, SearchOutlined, FundOutlined,EnvironmentOutlined,TeamOutli
 import React from "react";
 import {API} from "../../services/API";
 import axios from "axios";
+import {URLH} from "../../services/URLH";
 
 export default class VerOferta extends React.Component{
     constructor(props) {
@@ -100,7 +101,7 @@ export default class VerOferta extends React.Component{
                                                 size={35}
                                                 style={{
                                                     color: '#000000',
-                                                    backgroundImage: `url('http://localhost:8000/storage${value.empresa_id.imagen.substring(6)}')`,
+                                                    backgroundImage: `url('${URLH}storage${value.empresa_id.imagen.substring(6)}')`,
                                                     backgroundSize: '100% 100%',
                                                     marginRight:'20px',
                                                 }}

@@ -5,6 +5,7 @@ import axios from "axios";
 import ModalGetUser from "../Solicitudes/ModalGetUser";
 import AprobarPostulacion from "./AprobarPostulacion";
 import RechazarPostulacion from "./RechazarPostulacion";
+import {URLH} from "../../services/URLH";
 
 export default class TablaPostulaciones extends React.Component{
     constructor(props) {
@@ -62,7 +63,7 @@ export default class TablaPostulaciones extends React.Component{
                                 <Avatar
                                     style={{
                                         color: '#000000',
-                                        backgroundImage: `url('http://localhost:8000/storage${value.user_id.image.substring(6)}')`,
+                                        backgroundImage: `url('${URLH}storage${value.user_id.image.substring(6)}')`,
                                         backgroundSize: '100% 100%',
                                         marginRight:'10px'
                                     }}>

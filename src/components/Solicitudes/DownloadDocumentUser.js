@@ -2,6 +2,7 @@ import React from "react";
 import {Button} from "antd";
 import {FileOutlined} from "@ant-design/icons";
 import {API} from "../../services/API";
+import {URLH} from "../../services/URLH";
 
 export default function DownloadDocumentUser(props){
     const onDownload=()=>{
@@ -15,7 +16,7 @@ export default function DownloadDocumentUser(props){
                 icon={<FileOutlined />}
                 title="Descargar documento"
                 target="_blank"
-                href={"http://localhost:8000/storage"+props.document.substring(6)}
+                href={URLH+"storage"+props.document.substring(6)}
                 //href={API+`users/${props.id}/document`}
                 onClick={onDownload}
             />

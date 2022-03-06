@@ -18,6 +18,7 @@ import GetIdiomas from "./GetIdiomas";
 import GetHabilidades from "./GetHabilidades";
 import GetInstruccion from "./GetInstruccion";
 import GetCapacitaciones from "./GetCapacitaciones";
+import {URLH} from "../../services/URLH";
 
 export default class ModalGetUser extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ export default class ModalGetUser extends React.Component {
                     })
                 } else {
                     const dato = response.data.image
-                    const nuevoDato = "http://localhost:8000/storage" + dato.substring(6);
+                    const nuevoDato = URLH+"storage" + dato.substring(6);
                     this.setState({
                         usuarios: [response.data],
                         imagen: [nuevoDato],

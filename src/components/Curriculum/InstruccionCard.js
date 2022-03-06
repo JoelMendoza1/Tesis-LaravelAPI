@@ -11,6 +11,7 @@ import {
 import EditarInstruccion from "./EditarInstruccion";
 import EliminarInstruccion from "./EliminarInstruccion";
 import EditarInstruccionDocument from "./EditarInstruccionDocument";
+import {URLH} from "../../services/URLH";
 const {Text}= Typography;
 export default class InstruccionCard extends React.Component{
     constructor(props) {
@@ -106,7 +107,8 @@ export default class InstruccionCard extends React.Component{
                                             shape="circle"
                                             title='Descargar certificado'
                                             //href={API+`instrucciones/${value.id}/document`}
-                                            href={"http://localhost:8000/storage"+value.document.substring(6)}
+                                            href={URLH+"storage"+value.document.substring(6)}
+
                                         />
                                     </Col>
                                     <Col span={6}>

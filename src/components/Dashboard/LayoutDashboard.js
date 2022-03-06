@@ -200,7 +200,7 @@ export default class LayoutDashboard extends React.Component {
                 <Layout className="site-layout">
                     <Header className="site-layout-background" style={{ padding: 10 , background:"#1E1E2F", color:"#ffffff"}}>
                         <Row>
-                            <Col span={12} push={12}>
+                            <Col span={13} push={12}>
                                 <NavigationDashboard />
                             </Col>
                             <Col span={12} pull={12}>

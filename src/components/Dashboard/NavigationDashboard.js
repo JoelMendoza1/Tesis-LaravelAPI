@@ -7,6 +7,7 @@ import { InfoCircleOutlined
 } from "@ant-design/icons";
 import Routes from "../../constants/routes";
 import {NavLink} from "react-router-dom";
+import {URLH} from "../../services/URLH";
 
 export default class NavigationDashboard extends React.Component{
     constructor(props) {
@@ -33,7 +34,7 @@ export default class NavigationDashboard extends React.Component{
                     })
                 }else{
                     const dato= response.data.image
-                    const nuevoDato= "http://localhost:8000/storage"+dato.substring(6);
+                    const nuevoDato= URLH+"storage"+dato.substring(6);
                     //response.data.image
                     this.setState({
                         usuarios: [response.data],

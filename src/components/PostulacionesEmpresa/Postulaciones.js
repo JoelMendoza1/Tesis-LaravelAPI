@@ -5,6 +5,7 @@ import axios from "axios";
 import {BookOutlined, ClockCircleOutlined, EnvironmentOutlined, TeamOutlined} from "@ant-design/icons";
 import TablaPostulaciones from "./TablaPostulaciones";
 import Search from "antd/es/input/Search";
+import {URLH} from "../../services/URLH";
 
 const { TabPane } = Tabs;
 
@@ -129,7 +130,7 @@ export default class Postulaciones extends React.Component{
                                                     size={25}
                                                     style={{
                                                         color: '#000000',
-                                                        backgroundImage: `url('http://localhost:8000/storage${value.empresa_id.imagen.substring(6)}')`,
+                                                        backgroundImage: `url('${URLH}storage${value.empresa_id.imagen.substring(6)}')`,
                                                         backgroundSize: '100% 100%',
                                                         marginRight:'20px',
                                                     }}

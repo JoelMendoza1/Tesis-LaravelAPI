@@ -6,6 +6,7 @@ import {BankOutlined, CalendarOutlined, FileTextOutlined} from "@ant-design/icon
 import EditarCapacitacion from "./EditarCapacitacion";
 import EliminarCapacitacion from "./EliminarCapacitacion";
 import EditarCapacitacionDocument from "./EditarCapacitacionDocument";
+import {URLH} from "../../services/URLH";
 const {Text}= Typography;
 export default class CapacitacionCard extends React.Component{
     constructor(props) {
@@ -101,7 +102,7 @@ export default class CapacitacionCard extends React.Component{
                                             shape="circle"
                                             title='Descargar certificado'
                                             //href={API+`instrucciones/${value.id}/document`}
-                                            href={"http://localhost:8000/storage"+value.document.substring(6)}
+                                            href={URLH+"storage"+value.document.substring(6)}
                                         />
                                     </Col>
                                     <Col span={6}>

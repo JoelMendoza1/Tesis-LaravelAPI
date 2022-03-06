@@ -86,7 +86,7 @@ export default class EditarCapacitacionDocument extends React.Component{
                             name="document"
                             rules={[{required: true,whitespace:true, message: 'Por favor ingrese el documento que va a cambiar' }]}
                         >
-                            <input type='file' onChange={this.fileSelectedHandler}/>
+                            <input type='file' onChange={this.fileSelectedHandler} accept=".pdf"/>
                         </Form.Item>
                         <Form.Item wrapperCol={{offset: 8, span: 16}}>
                             <Button type="primary" htmlType="submit" style={{

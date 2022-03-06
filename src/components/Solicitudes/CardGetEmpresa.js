@@ -2,6 +2,7 @@ import {Avatar, Col, Row, Card, message, Spin} from "antd";
 import React from "react";
 import {API} from "../../services/API";
 import axios from "axios";
+import {URLH} from "../../services/URLH";
 
 export default class CardGetEmpresa extends React.Component{
     constructor(props) {
@@ -59,7 +60,7 @@ export default class CardGetEmpresa extends React.Component{
                                             <Avatar size={200}
                                                     style={{
                                                         color: '#000000',
-                                                        backgroundImage: `url('http://localhost:8000/storage${value.imagen.substring(6)}')`,
+                                                        backgroundImage: `${URLH}storage${value.imagen.substring(6)}')`,
                                                         backgroundSize: '100% 100%'
                                                     }}>
                                                 {value.nombreEmpresa[0]}{value.nombreEmpresa[1]}

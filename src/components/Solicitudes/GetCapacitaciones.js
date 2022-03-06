@@ -3,6 +3,7 @@ import {API} from "../../services/API";
 import axios from "axios";
 import {Button, Card, Col, message, Row, Typography} from "antd";
 import {BankOutlined, CalendarOutlined, FileTextOutlined} from "@ant-design/icons";
+import {URLH} from "../../services/URLH";
 const {Text}= Typography;
 
 export default class GetCapacitaciones extends React.Component{
@@ -64,7 +65,7 @@ export default class GetCapacitaciones extends React.Component{
                             shape="circle"
                             title='Descargar certificado'
                             //href={API+`instrucciones/${value.id}/document`}
-                            href={"http://localhost:8000/storage"+value.document.substring(6)}
+                            href={URLH+"storage"+value.document.substring(6)}
                         />
                             ]}
                     >

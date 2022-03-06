@@ -39,6 +39,8 @@ const AuthProvider=({children})=>{
                     localStorage.clear()
                 }
                 if(e.response.data.message==="token_invalid"){
+                    setUser(null)
+                    localStorage.clear()
                 }
             })
         }

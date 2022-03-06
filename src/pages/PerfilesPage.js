@@ -9,6 +9,7 @@ import CargarImgen from "../components/Perfil/CargarImgen";
 import ModalEditPassword from "../components/Perfil/ModalEditPassword";
 import ModalEditarDocumento from "../components/Perfil/ModalEditarDocumento";
 import EnviarSolicitud from "../components/Solicitudes/EnviarSolicitud";
+import {URLH} from "../services/URLH";
 const { Title } = Typography;
 
 export default class PerfilesPage extends Component{
@@ -36,7 +37,7 @@ export default class PerfilesPage extends Component{
             response=>{
                 console.log(response.data.image)
                 const dato= response.data.image
-                const nuevoDato= "http://localhost:8000/storage"+dato.substring(6);
+                const nuevoDato= URLH+"storage"+dato.substring(6);
                 console.log(nuevoDato)
                 //response.data.image
                 this.setState({

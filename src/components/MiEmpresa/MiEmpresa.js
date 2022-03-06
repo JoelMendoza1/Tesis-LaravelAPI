@@ -7,6 +7,7 @@ import ModalEditEmpresa from "./ModalEditEmpresa";
 import ModalCrearEmpresa from "./ModalCrearEmpresa";
 import {ShopOutlined} from "@ant-design/icons";
 import EditImageEmpresa from "./EditImageEmpresa";
+import {URLH} from "../../services/URLH";
 const { Title } = Typography;
 export default class MiEmpresa extends React.Component{
     constructor(props) {
@@ -89,7 +90,7 @@ export default class MiEmpresa extends React.Component{
                                                             <Avatar size={{ xs: 72, sm: 96, md: 120, lg: 192, xl: 240, xxl: 300 }}
                                                                     style={{
                                                                         color: '#000000',
-                                                                        backgroundImage: `url('http://localhost:8000/storage${value.imagen.substring(6)}')`,
+                                                                        backgroundImage: `url('${URLH}storage${value.imagen.substring(6)}')`,
                                                                         backgroundSize: '100% 100%',
                                                                         borderColor:"#ffffff",
                                                                         borderSize:"30px"
