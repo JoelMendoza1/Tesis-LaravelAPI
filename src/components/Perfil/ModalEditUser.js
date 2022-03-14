@@ -178,7 +178,7 @@ export default class ModalEditUser extends React.Component{
                                 <Input placeholder="1700000000"/>
                             </Form.Item>
                             <Form.Item
-                                label="Télefono"
+                                label="Teléfono"
                                 name="telefono"
                                 rules={[{
                                     required: true,

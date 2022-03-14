@@ -154,7 +154,7 @@ export default class LayoutDashboard extends React.Component {
                         </Menu.Item>
                         <Menu.Item key={Routes.CURRICULUM} icon={<IdcardOutlined/>} style={{display:this.state.pasante}} >
                             <NavLink to={Routes.CURRICULUM}>
-                                Curriculum
+                                Currículum
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key={Routes.OFERTAR} icon={<FundOutlined />}style={{display:this.state.empresa}} disabled={this.state.request}>

@@ -102,7 +102,7 @@ export default class CardGetEmpresa extends React.Component{
                                                 </Row>
                                                 <Row key={index}>
                                                     <Col span={12} >
-                                                        <h3>Email: </h3>
+                                                        <h3>Correo: </h3>
                                                     </Col>
                                                     <Col span={12}>
                                                         <h3>{value.emailEmpresa}</h3>

@@ -104,7 +104,7 @@ export default class TablaOfertar extends React.Component{
                             })
                         }}
                 />
-                <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff'}}>
+                <table className="default" style={{background:'#ffffff', margin:'auto', border:'#1E1E2F'}} border="1">
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
                         <th style={{width:'150px'}}>Oferta</th>

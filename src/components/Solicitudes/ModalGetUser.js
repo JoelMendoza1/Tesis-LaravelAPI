@@ -137,7 +137,7 @@ export default class ModalGetUser extends React.Component {
                                                     </Row>
                                                     <Row key={index}>
                                                         <Col span={12}>
-                                                            <h3><b>Email: </b></h3>
+                                                            <h3><b>Correo: </b></h3>
                                                         </Col>
                                                         <Col span={12}>
                                                             <h3>{value.email}</h3>
@@ -255,7 +255,7 @@ export default class ModalGetUser extends React.Component {
                                                                     margin:'10px',
                                                                     background: '#55556D'
                                                                 }}
-                                                                title={<h4><BookOutlined/> Instrucciones Academicas</h4>}
+                                                                title={<h4><BookOutlined/> Instrucciones Académicas</h4>}
                                                             >
                                                                 <InfiniteScroll>
                                                                     <GetInstruccion id={value.id}/>

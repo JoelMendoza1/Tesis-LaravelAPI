@@ -12,7 +12,7 @@ export default class SolicitudesEmpresaPage extends React.Component{
                     className="site-page-header"
                     onBack={() => window.history.back()}
                     title={<Title level={4}><QuestionOutlined /> Solicitudes Empresa</Title>}
-                    subTitle="En este módulo te permite gestionar las solicitudes de las Empresas"
+                    subTitle="Este módulo te permite gestionar las solicitudes de las Empresas"
                     style={{background:"#ffffff"}}
                 />
                 <Card style={{height:'80vh', overflow:'auto'}}>

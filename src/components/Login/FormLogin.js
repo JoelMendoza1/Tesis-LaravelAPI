@@ -88,7 +88,7 @@ export default function FormLogin(){
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Button type="primary" htmlType="submit" style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px', border:"#ffffff"}}>
-                        Inciar Sesión
+                        Iniciar Sesión
                     </Button>
                 </Form.Item>
             </Form>

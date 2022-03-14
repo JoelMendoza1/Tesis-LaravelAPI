@@ -59,7 +59,7 @@ export default class PerfilesPage extends Component{
                     className="site-page-header"
                     onBack={() => window.history.back()}
                     title={<Title level={4}><UserOutlined /> Perfil</Title>}
-                    subTitle="En este módulo permite editar los datos del perfil."
+                    subTitle="Este módulo te permite editar los datos del perfil."
                     style={{background:"#ffffff"}}
                 />
                 <div>

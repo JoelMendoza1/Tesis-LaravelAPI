@@ -65,7 +65,7 @@ export  default class ModalEditarDocumento extends Component{
     PasanteOrEmpresa(){
         if(this.state.typeUser==='P'){
             this.setState({
-                tipoUsuario: 'Curriculum'
+                tipoUsuario: 'Currículum'
             })
         }else if(this.state.typeUser==='E'){
             this.setState({

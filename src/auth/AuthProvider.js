@@ -29,19 +29,25 @@ const AuthProvider=({children})=>{
                     setUsuario(response.data)
                 }
             ).catch(e=>{
-                console.log( e.response.data.message)
-                if(e.response.data.message==="token_not_refreshed"){
+                if(e.response){
+                    if(e.response.data.message==="token_not_refreshed"){
+                        setUser(null)
+                        localStorage.clear()
+                    }
+                    if(e.response.data.message==="token_expired"){
+                        setUser(null)
+                        localStorage.clear()
+                    }
+                    if(e.response.data.message==="token_invalid"){
+                        setUser(null)
+                        localStorage.clear()
+                    }
+                }else{
                     setUser(null)
+                    localStorage.clear()
+                }
 
-                }
-                if(e.response.data.message==="token_expired"){
-                    setUser(null)
-                    localStorage.clear()
-                }
-                if(e.response.data.message==="token_invalid"){
-                    setUser(null)
-                    localStorage.clear()
-                }
+
             })
         }
     },[])

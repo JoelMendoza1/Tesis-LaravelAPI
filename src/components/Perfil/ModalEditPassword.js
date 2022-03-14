@@ -81,7 +81,7 @@ export default class ModalEditPassword extends React.Component{
                     <KeyOutlined className='botonDash' style={{ fontSize:'10px' }}/> Cambiar contraseña
                 </Button>
                 <Modal
-                    title="Editar Perfil "
+                    title="Cambiar contraseña "
                     visible={this.state.modal}
                     footer={[
                         <Button key="back" style={{background:'#1E1E2F', color:'#ffffff'}} onClick={this.apagarModal}>

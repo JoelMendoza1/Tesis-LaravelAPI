@@ -29,7 +29,7 @@ export default function ContentContact(){
             </div>
             <FooterComponent/>
             <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px'}}>
-                <NavLink to={ Routes.REGISTER } className={stylesNavigation.active} exact>Registrate!!</NavLink>
+                <NavLink to={ Routes.REGISTER } className={stylesNavigation.active} exact>Regístrate!!</NavLink>
             </Button>
         </Card>
     )

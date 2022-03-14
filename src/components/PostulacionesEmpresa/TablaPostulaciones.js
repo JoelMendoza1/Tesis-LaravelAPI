@@ -48,7 +48,7 @@ export default class TablaPostulaciones extends React.Component{
         return(
             <div>
                 <h1 align='center'>MIS POSTULACIONES</h1>
-                <table className="default" style={{background:'#3A506B', margin:'auto', borderColor:'#ffffff'}}>
+                <table className="default" style={{background:'#ffffff', margin:'auto', border:'#1E1E2F'}} border="1">
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
                         <th style={{width:'200px'}}>Usuario</th>

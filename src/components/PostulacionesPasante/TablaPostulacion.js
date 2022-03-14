@@ -83,7 +83,7 @@ export default class TablaPostulacion extends React.Component{
                             })
                         }}
                 />
-                <table className="default" style={{background:'#55556D', margin:'auto', borderColor:'#ffffff',borderCollapse: 'separate'}}>
+                <table className="default" style={{background:'#ffffff', margin:'auto', border:'#1E1E2F'}} border="">
                     <thead style={{background:'#1E1E2F', color:'#ffffff',borderColor:'#ffffff'}}>
                     <tr>
                         <th style={{width:'300px'}}>Oferta</th>

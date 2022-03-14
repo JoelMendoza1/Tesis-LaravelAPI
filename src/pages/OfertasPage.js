@@ -11,7 +11,7 @@ export default function OfertasPage(){
                 className="site-page-header"
                 onBack={() => window.history.back()}
                 title={<Title level={4}><FundOutlined /> Ofertas</Title>}
-                subTitle="En este módulo permite postular a las ofertas de mi preferencia"
+                subTitle="Este módulo te permite postular a las ofertas de mi preferencia"
                 style={{background:"#ffffff"}}
             />
             <Card style={{height:'80vh', overflow:'auto', paddingTop:'20px'}}>

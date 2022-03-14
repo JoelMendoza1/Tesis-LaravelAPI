@@ -21,7 +21,7 @@ export default function Navigation(){
                 </Menu.Item>
 
                 <Menu.Item key={Routes.REGISTER}>
-                    <NavLink to={ Routes.REGISTER } style={{color:'#ffffff'}} exact>Registrate</NavLink>
+                    <NavLink to={ Routes.REGISTER } style={{color:'#ffffff'}} exact>Regístrate</NavLink>
                 </Menu.Item>
                 <Menu.Item key={Routes.LOGIN} >
                     <Button style={{backgroundColor:'#292F36', color:'#ffffff'}}>

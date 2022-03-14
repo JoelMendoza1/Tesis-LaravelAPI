@@ -19,7 +19,7 @@ export default function About(){
                                     <h1>1</h1>
                                     <h1>LLENA EL FORMULARIO DE REGISTRO</h1>
                                     <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px'}}>
-                                        <NavLink to={ Routes.REGISTER } className='active' exact>Registrate!!</NavLink>
+                                        <NavLink to={ Routes.REGISTER } className='active' exact>Regístrate!!</NavLink>
                                     </Button>
                                 </div>
                             </div>
@@ -28,7 +28,7 @@ export default function About(){
                                     <h1>2</h1>
                                     <h1>COMPLETA TÚ CURRICULUM PROFESIONAL</h1>
                                     <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px'}}>
-                                        <NavLink to={ Routes.REGISTER } className='active' exact>Registrate!!</NavLink>
+                                        <NavLink to={ Routes.REGISTER } className='active' exact>Regístrate!!</NavLink>
                                     </Button>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@ export default function About(){
                                     <h1>3</h1>
                                     <h1>RECIBE LAS MEJORES OFERTAS</h1>
                                     <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px'}}>
-                                        <NavLink to={ Routes.REGISTER } className='active' exact>Registrate!!</NavLink>
+                                        <NavLink to={ Routes.REGISTER } className='active' exact>Regístrate!!</NavLink>
                                     </Button>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ export default function About(){
                                     <h1>1</h1>
                                     <h1>LLENA EL FORMULARIO DE REGISTRO</h1>
                                     <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px'}}>
-                                        <NavLink to={ Routes.REGISTER } className='active' exact>Registrate!!</NavLink>
+                                        <NavLink to={ Routes.REGISTER } className='active' exact>Regístrate!!</NavLink>
                                     </Button>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ export default function About(){
                                     <h1>2</h1>
                                     <h1>COMPLETA LOS DATOS DE TU EMPRESA</h1>
                                     <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px'}}>
-                                        <NavLink to={ Routes.REGISTER } className='active' exact>Registrate!!</NavLink>
+                                        <NavLink to={ Routes.REGISTER } className='active' exact>Regístrate!!</NavLink>
                                     </Button>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ export default function About(){
                                     <h1>3</h1>
                                     <h1>ENVIA OFERTAS</h1>
                                     <Button style={{backgroundColor:'#292F36', color:'#ffffff', marginTop: '30px'}}>
-                                        <NavLink to={ Routes.REGISTER } className='active' exact>Registrate!!</NavLink>
+                                        <NavLink to={ Routes.REGISTER } className='active' exact>Regístrate!!</NavLink>
                                     </Button>
                                 </div>
                             </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import {Button} from "antd";
 import {FileOutlined} from "@ant-design/icons";
-import {API} from "../../services/API";
 import {URLH} from "../../services/URLH";
 
 export default function DownloadDocumentUser(props){
