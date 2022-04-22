@@ -61,7 +61,7 @@ export default function FormRegistrar(){
 
         axios.post(url,datos).then(
             response=>{
-                message.success('Nueva capacitación  ingresada!!');
+                message.success('Nuevo usuario ingresad0!!');
                 console.log(response.data)
                 setCurrent(current + 1);
                 setBlockSiguiente(true)
@@ -129,7 +129,6 @@ export default function FormRegistrar(){
         }
         setLoding(false)
         message.success("Foto Cargada "+nameImage)
-        message.info("Next para crear la contraseña")
     }
     return(
         <>

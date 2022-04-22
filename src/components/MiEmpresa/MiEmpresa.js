@@ -70,7 +70,7 @@ export default class MiEmpresa extends React.Component{
                 <PageHeader
                     className="site-page-header"
                     onBack={() => window.history.back()}
-                    title={<Title level={4}><ShopOutlined /> My Empresa</Title>}
+                    title={<Title level={4}><ShopOutlined /> Mi Empresa</Title>}
                     subTitle="Este módulo te permite gestionar la información de perfil de la empresa"
                     style={{background:"#ffffff"}}
                 />
